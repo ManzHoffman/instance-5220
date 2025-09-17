@@ -1,5 +1,7 @@
 scene("lose", () => {
-
+     // minimal setup
+     addVHSEffects() // call the global function
+     addAuroras()
 
     add([
         sprite("background"),
@@ -46,23 +48,15 @@ scene("lose", () => {
       reindeerDie.flipX = true;
 
       reindeerDie.play(ANIM_DIE);
-/*
-if (lives > 0 ) {
-    
-}
-else {
 
-lives--
-
-}*/
 
 // 3 seconds until explosion! Runnn!
 wait(1, () => {
-    addText(loose.title,48,icyWhite,"ussr","center",width()/2,height()/2+400)
+    addText(loose.title,48,COLOR_WHITE,"ussr","center",width()/2,height()/2+400)
   
     onKeyPress("space", () => {
 
-      go("game",currentLevel)
+      go("game")
   })})
   
 })

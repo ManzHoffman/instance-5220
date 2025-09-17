@@ -10,14 +10,20 @@ const SOUNDS = {
 	dropping_snowball: "./src/game/assets/sounds/dropping_snowball.wav",
 	hit_by_snowball: "./src/game/assets/sounds/hit_by_snowball.wav",
 	typing: "./src/game/assets/sounds/typing.wav",
-	fragment_get: "./src/game/assets/sounds/fragment.wav"
+	fragment_get: "./src/game/assets/sounds/fragment.wav",
+	grab_item: "./src/game/assets/sounds/grab_item.wav",
+	locked: "./src/game/assets/sounds/lock.wav",
+	error: "./src/game/assets/sounds/error.wav",
+	success: "./src/game/assets/sounds/success.wav",
+	notif: "./src/game/assets/sounds/notif.wav",
+	laser: "./src/game/assets/sounds/laser.wav",
 }
 
 // LOAD SOUNDS
 loadGameElements(SOUNDS,"sound")
 let soundKeys = Object.keys(SOUNDS);
 
-let windAmbiance = play(soundKeys[4], { loop: true, paused: true, volume: MUSIC_VOLUME});
+//let windAmbiance = play(soundKeys[4], { loop: true, paused: true, volume: MUSIC_VOLUME});
 
 
 
@@ -41,13 +47,6 @@ loadGameElements(FONTS,"font")
 const SPRITES = 
 
 {
-	
-	leftOuter:"./src/game/assets/elements/lifebar/meter_bar_holder_left_edge_red.png",
-	rightOuter:"./src/game/assets/elements/lifebar/meter_bar_holder_right_edge_red.png",
-	centerOuter:"./src/game/assets/elements/lifebar/meter_bar_holder_center-repeating_red.png",
-	leftInner:"./src/game/assets/elements/lifebar/meter_bar_left_edge_red.png",
-	rightInner: "./src/game/assets/elements/lifebar/meter_bar_right_edge_red.png",
-	centerInner:"./src/game/assets/elements/lifebar/meter_bar_center-repeating_red.png",
 	sea:"./src/game/assets/elements/landscape/arctic/sea_colour_strip.png",
 	sky:"./src/game/assets/elements/landscape/arctic/sky_colour_strip.png",
 	icelongLeft:"./src/game/assets/elements/landscape/arctic/platform_edge_left_jagged.png",
@@ -89,8 +88,17 @@ const SPRITES =
 	rock2:"./src/game/assets/elements/rocks/rock_14.png",
 	rock3:"./src/game/assets/elements/rocks/rock_03.png",
 	rock4:"./src/game/assets/elements/rocks/rock_15.png",
+	doorClosed:"./src/game/assets/elements/door/door_side.png",
+	doorOpened:"./src/game/assets/elements/door/door_open.png",
+	key:"./src/game/assets/elements/door/key_01.png",
+	blue_switch_pressed:"./src/game/assets/elements/laser/switches/blue_switch_pressed.png",
+	blue_switch_unpressed:"./src/game/assets/elements/laser/switches/blue_switch_unpressed.png",
+	blue_laser:"./src/game/assets/elements/laser/lasers/blue_laser.png",
+	laser_blue_off:"./src/game/assets/elements/laser/lasers/laser_blue_off.png",
+	laser_blue_on:"./src/game/assets/elements/laser/lasers/laser_blue_on.png",
+	trampoline:"./src/game/assets/elements/jump/red_trampoline_frame_2.png",
+	small_fuel_red:"./src/game/assets/elements/oil/small_fuel_red.png",
 }
-
 
 
 loadGameElements(SPRITES,"sprite")
@@ -105,13 +113,15 @@ const ANIMATED_SPRITES =
 	playerDie:[{name: "playerDie", src:"./src/game/assets/elements/player/basicReindeer/reindeer_die.png",sliceX:5,sliceY:2,anim: ANIM_DIE,from:0,to:9,speed:FRAME_SPEED,loop:false}],
 	playerLaying:[{name: "playerLaying", src:"./src/game/assets/elements/player/basicReindeer/reindeer_laying.png",sliceX:5,sliceY:4,anim: ANIM_CHILL,from:0,to:19,speed:FRAME_SLOW_SPEED,loop:true}],
 	orb:[{name: "orb", src:"./src/game/assets/elements/obj/orb_anim.png",sliceX:4,sliceY:4,anim: ANIM_ORB,from:0,to:15,speed:FRAME_SLOW_SPEED,loop:true}],
+	smallSpike:[{name: "smallSpike", src:"./src/game/assets/elements/spikes/long_wood/wood_spike_sprite_sheet.png",sliceX:5,sliceY:1,anim: ANIM_SP,from:0,to:4,speed:FRAME_SLOW_SPEED,loop:true}],
+
 
 	//playerEat:[{name: "playerDie", src:"./src/game/assets/elements/player/basicReindeer/reindeer_eat.png",sliceX:5,sliceY:2,anim: ANIM_EAT,from:0,to:9,speed:FRAME_SPEED,loop:false}],
 	walrusIdle:[{name: "walrusIdle", src:"./src/game/assets/elements/enemy/walrus/walrusWhite/walrus_idle.png",sliceX:5,sliceY:4,anim: ANIM_W_IDLE,from:0,to:19,speed:3,loop:true}],
 	walrusAttack:[{name: "walrusAttack", src:"./src/game/assets/elements/enemy/walrus/walrusWhite/walrus_idle.png",sliceX:4,sliceY:2,anim: ANIM_W_ATTACK,from:0,to:7,speed:3,loop:false}],
 	walrusDie:[{name: "walrusDie", src:"./src/game/assets/elements/enemy/walrus/walrusWhite/walrus_die.png",sliceX:5,sliceY:3,anim: ANIM_W_DIE,from:0,to:7,speed:3,loop:false}],
-	basic_weapon_player:[{name: "basic_weapon_player", src:"./src/game/assets/elements/projectile/basic_weapon_player.png",sliceX:3,sliceY:2,anim: ANIM_BASIC_WEAPON_P,from:0,to:5,speed:3,loop:true}],
-	seagullFly:[{name: "seagullFly", src:"./src/game/assets/elements/npc/seagull/seagull_fly.png",sliceX:4,sliceY:3,anim: ANIM_S_FLY,from:0,to:9,speed:5,loop:true}],
+	//basic_weapon_player:[{name: "basic_weapon_player", src:"./src/game/assets/elements/projectile/basic_weapon_player.png",sliceX:3,sliceY:2,anim: ANIM_BASIC_WEAPON_P,from:0,to:5,speed:3,loop:true}],
+	//seagullFly:[{name: "seagullFly", src:"./src/game/assets/elements/npc/seagull/seagull_fly.png",sliceX:4,sliceY:3,anim: ANIM_S_FLY,from:0,to:9,speed:5,loop:true}],
 	friendIdle:[{name: "friendIdle", src:"./src/game/assets/elements/npc/friend/friend_idle.png",sliceX:5,sliceY:4,anim: ANIM_IDLE,from:0,to:19,speed:FRAME_SPEED,loop:true}],
 
 }

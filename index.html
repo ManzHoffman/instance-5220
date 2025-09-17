@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instance 5220</title>
 </head>
+
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
     <script src="https://unpkg.com/kaplay@3001/dist/kaplay.js"></script>
     <script src="https://pixijs.download/release/pixi.min.js"></script>
     <script src="https://pixijs.io/pixi-filters/tools/pixi-filters.min.js"></script>
+
+    <script src="./src/game/local_storage/localStorageUtils.js"></script>
+    <script src="./src/game/ui/addText.js"></script>
     <script src="./src/game/initialization.js"></script>
-    <script src="./src/game/functions/load.js"></script>
-    <script src="./src/game/functions/landscape.js"></script>
+    <script src="./src/game/ui/load.js"></script>
+    <script src="./src/game/ui/landscape.js"></script>
     <script src="./src/game/controls/controls.js"></script>
-     <!-- <script src="./src/game/levels/levels.js"></script> -->
+    <script src="./src/game/ui/inventory.js"></script>
+    <script src="./src/game/ui/codePromptModal.js"></script>
+    <!-- <script src="./src/game/levels/levels.js"></script> -->
     <script src="./src/game/player/player.js"></script>
-    <script src="./src/game/functions/spawn.js"></script>
+    <script src="./src/game/items/spawn.js"></script>
     <script src="./src/game/npc/whiteWalrus.js"></script>
     <script src="./src/game/npc/friend.js"></script>
     <script src="./src/game/npc/seagull.js"></script>
     <script src="./src/game/assets/text/fr.js"></script>
     <script src="./src/game/assets.js"></script>
-    <script src="./src/game/functions/functions.js"></script>
-    <script src="./src/game/functions/projectiles.js"></script>
-    <script src="./src/game/functions/lifeBar.js"></script>
-    <script src="./src/game/functions/fragments.js"></script>
-    <script src="./src/game/functions/ui.js"></script>
+    <script src="./src/game/ui/ui.js"></script>
+    <script src="./src/game/ui/projectiles.js"></script>
+    <script src="./src/game/ui/lifebar.js"></script>
+    <script src="./src/game/items/fragments.js"></script>
+    <script src="./src/game/items/spikes.js"></script>
+    <script src="./src/game/items/laserBeam.js"></script>
+
     <script src="./src/game/scenes/intro.js"></script>
     <script src="./src/game/scenes/menu.js"></script>
     <script src="./src/game/scenes/game.js"></script>
     <script src="./src/game/scenes/lose.js"></script>
+    <script src="./src/game/scenes/end.js"></script>
     <!-- <script src="./src/game/cinematic/cinematic.js"></script>-->
     <script src="./src/game/fx/vhs.js"></script>
     <script src="./src/game/fx/auroras.js"></script>
     <script src="./src/game/fx/snow.js"></script>
-    <!-- <script src="./src/game/collision/col.js"></script> -->
+    <script src="./src/game/fx/blink.js"></script>
+    <script src="./src/game/fx/glitch.js"></script>
+    <script src="./src/game/fx/laserEffect.js"></script>
+    <script src="./src/game/fx/itemIdleAnimation.js"></script>
+    <script src="./src/game/fx/glitchCanvas.js"></script>
+    <script src="./src/game/fx/glitchCanvasFade.js"></script>
+    <script src="./src/game/collision/collide.js"></script>
 </body>
+
 </html>

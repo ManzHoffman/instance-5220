@@ -12,7 +12,6 @@ const level1 = {
 };
 const loose = {
 title: "Appuyer sur ESPACE pour continuer",
-dead:"Plouf !",
 
 };
 
@@ -30,4 +29,24 @@ const CONTROLS = {
 leftAndRight: "Utilise A et D pour te déplacer à gauche et à droite\n\nAppuie sur ESPACE pour sauter",
 jump: "Utilise la barre espace pour sauter",
 
+};
+  const lines = [
+    "[Initialisation . . .]",
+    "[Instance: 5220]",
+    "[69°42’N 147°12’E]",
+    "[Janvier 2022]",
+  ];
+
+    const end_lines = [
+    "[Reconstruction Complete]",
+    "[Subject F27 - Memory Index: 100%]",
+    "[Emotive Trace: PRESERVED]",
+    "[> Terminating simulation...]",
+  ];
+
+  // Terminal lines (mysterious, non-spoiler)
+  // 
+
+  const NOTIF_ACTIONS = {
+  key_missing: "Une clé est requise !",
 };

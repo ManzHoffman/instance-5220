@@ -1,6 +1,12 @@
 function initPlayer(posx,posy) {
 
+let isMovingLeft = false
+let isMovingRight = false
+let lastDirection = true // true = right, false = left
+WALK_NOISE = play("reindeer_walking", { loop: true, volume:0.2, paused:true });
 
+//let falling = play("fall_sound", { loop: false, volume:0.5, paused:true, speed:1.5 });
+var firstProjectile = 0;
 
 const player = add([
     sprite("playerLaying"),
@@ -10,36 +16,34 @@ const player = add([
     body(),
     area({ shape: new Rect(vec2(0), 100, 100) }), // custom collision box
     anchor("center"),
-
+    z(LAYERS.PLAYER)
 
   ])
 
-let walkNoise = play("reindeer_walking", { loop: true, volume:0.05, paused:true });
 
-//let falling = play("fall_sound", { loop: false, volume:0.5, paused:true, speed:1.5 });
-var firstProjectile = 0;
 
-const walk =(flipPlayer) => {
-    if (player.isGrounded()) {
-    player.use(sprite("playerWalk"))  
-    player.play(ANIM_WALK)  
-    player.flipX = flipPlayer 
-
-  
-
+const walk = (flipPlayer) => {
+  if (player.isGrounded()) {
+    if (player.curAnim() !== ANIM_WALK) {
+      player.use(sprite("playerWalk"))
+      player.play(ANIM_WALK)
     }
+    player.flipX = flipPlayer
+  }
 }
+
 const lay =(flipPlayer) => {
 
     player.use(sprite("playerLaying"))  
     player.play(ANIM_CHILL)  
     player.flipX = flipPlayer 
 }
-const idle =(flipPlayer) => {
-
-    player.use(sprite("playerIdle"))  
-    player.play(ANIM_IDLE)  
-    player.flipX = flipPlayer 
+const idle = (flipPlayer) => {
+  if (player.curAnim() !== ANIM_IDLE) {
+    player.use(sprite("playerIdle"))
+    player.play(ANIM_IDLE)
+  }
+  player.flipX = flipPlayer
 }
 const die =(flipPlayer) => {
 
@@ -66,64 +70,41 @@ lay(true);
 const fixedCamY = 80
 
 	// action() runs every frame
-	player.onUpdate(() => {
-        
-        camPos(vec2(player.pos.x, fixedCamY)) // fixedCamY = a low value like 400–500
-
-		// check fall death
-   
-		if (player.pos.y >= FALL_DEATH) {
-			go("lose")
-		}
-  /*
-   
-        else if(player.pos.y >= FALL_DEATH_SOUND && !player.isGrounded() && falling.paused == true)
-        {
-            falling.paused = false
-        }*/
-
-        if (player.isGrounded() && player.curAnim() == ANIM_WALK) {
-            walkNoise.paused = false;
-        }
-        else 
-        {
-            walkNoise.paused = true;
-
-        }
-
-
-/*
-        for (let key in cinematicObjPoints) {
-            let cinematicArray = cinematicObjPoints[key];
-            for (let i = 0; i < cinematicArray.length; i++) {
-        
-               // console.log("pos :" + cinematicArray[i].obj.pos)    
-
-                if (player.pos.dist(cinematicArray[i].objTrigger.pos) < DEFAULT_CINEMATIC_TRIGGER_DISTANCE && !cinematicArray[i].played) {
-
-                   
-                    cinematicArray[i].played = true;
-                    idle(true);
-
-                }
-
-
-                // Do something with obj and duration
-               // console.log(`Object: ${obj}, Duration: ${duration}`);
-            }
-        }*/
-
-
-    
-    
+player.onUpdate(() => {
 
 
 
-	})
+
+  camPos(vec2(player.pos.x, fixedCamY))
+
+
+  if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) {
+    idle(lastDirection)
+    return
+  }
+
+
+  if (player.pos.y >= FALL_DEATH || Lifebar.getValue() <= 0) {
+    go("lose")
+  }
+
+  // resolve conflicting inputs
+  if (isMovingLeft && isMovingRight) {
+    idle(lastDirection)
+  } else if (isMovingLeft) {
+    player.move(-SPEED, 0)
+    walk(false)
+  } else if (isMovingRight) {
+    player.move(SPEED, 0)
+    walk(true)
+  }
+
+  WALK_NOISE.paused = !(player.isGrounded() && player.curAnim() == ANIM_WALK)
+})
 
     player.onGround(() => {
 
-        if (IS_CINEMATIC_MODE_ON) return;
+        if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
         if (isKeyDown(controls.backward) && !isKeyDown(controls.forward))  
         {
@@ -137,7 +118,9 @@ const fixedCamY = 80
         
 
     })
+    /*
     player.onCollide("plant", (plant) => {
+        if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
       
         play("eat", { loop: false, volume:0.5 });
 
@@ -145,6 +128,7 @@ const fixedCamY = 80
     })
     
 	player.onCollide(snowball_enemy, (snEnemy) => {
+        if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
         
 
         play("hit_by_snowball", { loop: false, volume:0.5 });
@@ -159,19 +143,8 @@ const fixedCamY = 80
         displayBar(P_HEALTH,true)
 
         destroy(snEnemy);
-    })
-    player.onCollide("codeTrigger", (t) => {
-        if (!t.activated) {
-          t.activated = true // prevent repeat activation
-      
-          showCodePromptModal("Un mot… un code scellé.\nEntrez-le pour avancer.", () => {
-            // ✅ Success!
-            destroy(t)
-            showMemoryModal("🔓 Le chemin s’ouvre devant vous.")
-            // You could also play an animation, open a door, or go to the next level
-          })
-        }
-      })
+    })*/
+
       
 
     player.on("death", () => {
@@ -218,7 +191,7 @@ onMousePress("left", async (pos) => {
 
 onKeyPress(controls.forward, () => {
 
-    if (IS_CINEMATIC_MODE_ON) return;
+    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
     if (!isKeyDown(controls.backward)) {
         
@@ -234,7 +207,7 @@ onKeyPress(controls.forward, () => {
 
 onKeyPress(controls.backward, () => {
 
-    if (IS_CINEMATIC_MODE_ON) return;
+    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
     if (!isKeyDown(controls.forward)) {
 
@@ -245,69 +218,42 @@ onKeyPress(controls.backward, () => {
  
 })
 onKeyDown(controls.forward, () => {
+  if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
+  isMovingRight = true
+  lastDirection = true
+  player.move(SPEED, 0)
+  walk(true)
+})
 
-    if (IS_CINEMATIC_MODE_ON) return;
-
-    if (!isKeyDown(controls.backward)) {  
-    player.move(SPEED, 0)
-
-    }
-    else
-    {
-        idle(false)
-    }
-
-  
+onKeyRelease(controls.forward, () => {
+  isMovingRight = false
+  if (!isMovingLeft) idle(true)
 })
 
 onKeyDown(controls.backward, () => {
+  if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
+  isMovingLeft = true
+  lastDirection = false
+  player.move(-SPEED, 0)
+  walk(false)
+})
 
-    if (IS_CINEMATIC_MODE_ON) return;
-
-    if (!isKeyDown(controls.forward)) {
-
-    player.move(-SPEED, 0)
-    
-    }
-    else
-    {
-        idle(true)
-    }
-
+onKeyRelease(controls.backward, () => {
+  isMovingLeft = false
+  if (!isMovingRight) idle(false)
 })
 
 
 
-onKeyRelease(controls.backward, () => {
-    
-
-if (IS_CINEMATIC_MODE_ON) return;
-
-if (!isKeyDown(controls.forward)) {
-     idle(false)
-}
    
     
     
-
-})
-onKeyRelease(controls.forward, () => {
-    
-    if (IS_CINEMATIC_MODE_ON) return;
-
-    if (!isKeyDown(controls.backward)) {
-          idle(true)
-    }
-  
- 
-
-})
 
 
 
 onKeyPress(controls.jump, () => {
 
-    if (IS_CINEMATIC_MODE_ON) return;
+    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
 
         jump(player.flipX);

@@ -3,5 +3,5 @@ var controls = {
     backward:"a",
     jump:"space",
     mouseLeft:"left",
-
+    openInventory:"i",
 }

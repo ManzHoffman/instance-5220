@@ -81,13 +81,7 @@ scene("menu", () => {
     //reindeerAlone.play(ANIM_IDLE);
     let backMusic = play("menu", { loop: true,volume: 0.5 });
     // Add background
-    /*
-    add([
-      rect(width(), height()),
-      icyColor,
 
-
-    ]);*/
     function createMenuButton(label, y, onClick) {
       const width = 400
       const height = 80
