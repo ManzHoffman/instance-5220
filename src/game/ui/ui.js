@@ -5,6 +5,11 @@
     gap: 10,           // space between notifs
   };
   
+function getControlsDescription() {
+  return CONTROLS.map(c => `${c.action} : ${c.key}`).join("\n");
+}
+
+
 function showDeerThought(content, options = {}) {
     const boxWidth = options.width || 600
     const fontSize = options.size || 24
@@ -199,7 +204,7 @@ function showInventoryModal(content, duration = 4) {
   function showMemoryModal(content, duration) {
     
     const boxWidth = 600
-    const boxHeight = 220
+    const boxHeight = 280
   
     // Dark overlay behind everything
     const overlay = add([

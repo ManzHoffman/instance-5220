@@ -86,12 +86,12 @@ function setupCollisions(player) {
     if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
 
-/*
+
     if (!Inventory.has(ITEM_KEY_DOOR_01)) {
 
       showNotification(NOTIF_ACTIONS.key_missing, 3)
       return;
-    }*/
+    }
 
     const doorClosed = get("doorClosed")[0]  // or use `.find()` if more than one
     doorClosed.use(sprite("doorOpened"))
@@ -165,6 +165,22 @@ showScreenGlitch()
 
   const BOUNCE_FORCE = 1000;   
   const BOUNCE_CD    = 0.15;   
+
+
+
+  player.onCollide("handleSwitch", (switching) => {
+
+      if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;
+
+      if(PLATEFORM_ANGLE == -90)
+      {
+
+        showNotification("E pour activer le levier !", 3);
+      }
+      
+
+    
+  })
   
 player.onCollide("trampolineJump", (tramp) => {
   if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;

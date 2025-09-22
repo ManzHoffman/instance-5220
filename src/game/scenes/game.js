@@ -1,9 +1,10 @@
 scene("game", (level) => {
 
- WIND_AMB = play("windAmb", { loop: true,volume: 1 });
- const hasAlreadyPlayed = StorageUtils.load(HAS_ALREADY_PLAYED)
 
-if (!LEVEL_TESTING || hasAlreadyPlayed == null || hasAlreadyPlayed == false ) 
+ WIND_AMB = play("windAmb", { loop: true,volume: 1 });
+
+
+if (!LEVEL_TESTING  ) 
 {
 
      IS_CINEMATIC_MODE_ON = true;
@@ -71,8 +72,7 @@ add([
     addSnow()
   setupCollisions(player)
 
- 
-if(hasAlreadyPlayed == null || hasAlreadyPlayed == false ){
+
 
 playDeerThoughts([
     { text: "Il fait froid. Mais ce n’est pas le froid que je connais.", duration: 3},
@@ -85,17 +85,23 @@ playDeerThoughts([
     // 🎯 Trigger next step here:
     // e.g., unlock movement, start snowstorm, fade in next zone
     IS_CINEMATIC_MODE_ON = false;
+    
+
   
 
   
     console.log("All thoughts finished!")
-    showMemoryModal(CONTROLS.leftAndRight, 4)
+    showMemoryModal(getControlsDescription(), 4)
 
-    StorageUtils.save(HAS_ALREADY_PLAYED, true)
+
 
   })
 
-}
+
+ 
+
+
+
 onKeyPress(controls.openInventory, () => {
 
   if (CAN_OPEN_INVENTORY) {
@@ -103,6 +109,31 @@ onKeyPress(controls.openInventory, () => {
     Inventory.show()
   }
 })
+
+onKeyPress(controls.help, () => {
+
+  if (IS_CINEMATIC_MODE_ON) return;
+
+  showMemoryModal(getControlsDescription(), 4)
+})
+
+
+onKeyPress(controls.activate, () => {
+  const handleSwitch = get("handleSwitch")[0]  // or use `.find()` if more than one
+
+  if (IS_CINEMATIC_MODE_ON) return;
+
+	if (handleSwitch.pos.dist(player.pos) < 100) {
+
+      //showMemoryModal("terstserestgsewsg", 4)
+      handleSwitch.rotate = 0
+   
+
+		}
+
+
+})
+
 
 
 })

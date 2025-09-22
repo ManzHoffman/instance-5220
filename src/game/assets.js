@@ -91,6 +91,7 @@ const SPRITES =
 	doorClosed:"./src/game/assets/elements/door/door_side.png",
 	doorOpened:"./src/game/assets/elements/door/door_open.png",
 	key:"./src/game/assets/elements/door/key_01.png",
+	key2:"./src/game/assets/elements/door/key_02.png",
 	blue_switch_pressed:"./src/game/assets/elements/laser/switches/blue_switch_pressed.png",
 	blue_switch_unpressed:"./src/game/assets/elements/laser/switches/blue_switch_unpressed.png",
 	blue_laser:"./src/game/assets/elements/laser/lasers/blue_laser.png",
@@ -98,6 +99,9 @@ const SPRITES =
 	laser_blue_on:"./src/game/assets/elements/laser/lasers/laser_blue_on.png",
 	trampoline:"./src/game/assets/elements/jump/red_trampoline_frame_2.png",
 	small_fuel_red:"./src/game/assets/elements/oil/small_fuel_red.png",
+	side_connector_mechanism:"./src/game/assets/elements/trapdoor/parts/side_connector_mechanism.png",
+	dark_wood_long:"./src/game/assets/elements/trapdoor/parts/dark_wood_long.png",
+	handle: "./src/game/assets/elements/obj/brake.png",
 }
 
 

@@ -18,6 +18,7 @@ const COLOR_BLACK = '#000000';
 // STATE
 let IS_GAME_PAUSED = false;
 let CAN_OPEN_INVENTORY = false;
+let HAS_GAME_BEGIN = false;
 
 // DAMAGE
 const SPIKE_DAMAGE = 0.1;
@@ -64,7 +65,7 @@ const ANIM_BASIC_WEAPON_P = "shot";
 // GLOBAL VARIABLES THAT WILL BE GET FROM LOCAL STORAGE
 var PLAYER_SHOT_FORCE = 1
 var P_SHOT_FREQUENCY = 400;
-var PLAYER_NAME = "FROSTELL";
+
 var MUSIC_VOLUME = 0.2;
 var WALK_NOISE = "";
  var WIND_AMB ="";
@@ -72,8 +73,7 @@ var WALK_NOISE = "";
 // INITIALIZING GLOBAL VARIABLES
 var IS_CINEMATIC_MODE_ON = false;
 var IS_TYPING_CODE = false;
-var HAS_ALREADY_PLAYED = false;
-StorageUtils.save(HAS_ALREADY_PLAYED, false)
+
 
 // INVENTORY
 
@@ -83,6 +83,8 @@ let inventoryOpen = false
 
 // States
 var IS_PLAYER_WALKING = 0;
+
+var PLATEFORM_ANGLE = -90;
 
 const LAYERS = {
 

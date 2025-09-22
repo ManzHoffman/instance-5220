@@ -122,14 +122,26 @@ scene("menu", () => {
     
       box.onClick(onClick)
     }
-    
+
+
+
+
+
+
     createMenuButton(menu.play, height() / 2 - 60, () => {
       backMusic.stop("menuBackground")
+      
+ 
       go("intro", 1)
+      return
+    
+
+
     })
     
     createMenuButton(menu.options, height() / 2 + 60, () => {
-      alert("Options coming soon")
+      backMusic.stop("menuBackground")
+        go("settings")
     })
 
 

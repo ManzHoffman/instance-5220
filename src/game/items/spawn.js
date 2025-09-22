@@ -40,18 +40,6 @@ function spawnElements() {
 
   // END TRIGGERS
 
-// OIL
-
-    const oilJerrican = add([
-          area(),
-    sprite("small_fuel_red"),
-   rotate(30),
-    pos(2080, -320),
-    scale(0.2),
-  
-    z(400),
-    "fuel"
-  ])
 
 
 
@@ -100,10 +88,24 @@ function spawnElements() {
     area(),
 
   ])
+
+  
+// OIL
+
+    const oilJerrican = add([
+          area(),
+    sprite("small_fuel_red"),
+   rotate(30),
+    pos(1580, -200), // og 2080 diff 500
+    scale(0.2),
+  
+    z(400),
+    "fuel"
+  ])
 // OIL BLock
   add([
     sprite("iceBlock"),
-    pos(2000, -280),
+    pos(1500, -140),
     area(),
     scale(0.5),
     body({ isStatic: true }),
@@ -111,7 +113,41 @@ function spawnElements() {
 
   ])
 
+  add([
+    sprite("side_connector_mechanism"),
+    pos(1630, -120),
+    area(),
+    scale(0.3),
+    //body({ isStatic: true }),
+    area(),
 
+  ])
+
+
+    add([
+    sprite("dark_wood_long"),
+    pos(1630, -120),
+    area(),
+    scale(0.3),
+    body({ isStatic: true }),
+    area(),
+    rotate(PLATEFORM_ANGLE)
+
+  ])
+
+    add([
+    sprite("handle"),
+    pos(4700, 480),
+    area(),
+    scale(0.5),
+    //body({ isStatic: true }),
+    area(),
+    "handleSwitch"
+   // rotate(PLATEFORM_ANGLE)
+
+  ])
+//	side_connector_mechanism:"./src/game/assets/elements/trapdoor/parts/side_connector_mechanism.png",
+	//dark_wood_long:"./src/game/assets/elements/trapdoor/parts/dark_wood_long.png",
   
   add([
     sprite("iceBlock"),
@@ -290,6 +326,17 @@ function spawnElements() {
   add([
     sprite("rock3"),
     pos(5000, 100),
+    area(),
+    scale(1),
+    body({ isStatic: true }),
+    //area(),
+
+  ])
+
+  
+  add([
+    sprite("rock3"),
+    pos(4650, 500),
     area(),
     scale(1),
     body({ isStatic: true }),

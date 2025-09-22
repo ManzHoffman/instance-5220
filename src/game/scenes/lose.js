@@ -55,6 +55,7 @@ wait(1, () => {
     addText(loose.title,48,COLOR_WHITE,"ussr","center",width()/2,height()/2+400)
   
     onKeyPress("space", () => {
+     
 
       go("game")
   })})

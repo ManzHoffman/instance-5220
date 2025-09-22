@@ -4,4 +4,7 @@ var controls = {
     jump:"space",
     mouseLeft:"left",
     openInventory:"i",
+    escape:"escape",
+    help:"h",
+    activate:"e",
 }
