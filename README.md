@@ -45,6 +45,6 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 - **Pixi.js / pixi-filters** – Pour certains effets visuels (glitch, shaders)
 - **p5.js (expérimental)** – Pour overlays custom comme le glitchCanvas
 - **Système de scènes, dialogues, modals, collisions, FX** entièrement custom
-- **Audio** géré via Kaboom (boucles, FX, ambiances)
+- **Audio** Splice(https://www.splice.com)  (boucles, FX, ambiances)
 
 ---
