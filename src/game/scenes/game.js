@@ -120,14 +120,15 @@ onKeyPress(controls.help, () => {
 
 onKeyPress(controls.activate, () => {
   const handleSwitch = get("handleSwitch")[0]  // or use `.find()` if more than one
+  const woodBar = get("darkWood")[0]  // or use `.find()` if more than one
 
-  if (IS_CINEMATIC_MODE_ON) return;
+  if (IS_CINEMATIC_MODE_ON || handleSwitch.angle == -10) return;
 
 	if (handleSwitch.pos.dist(player.pos) < 100) {
 
-      //showMemoryModal("terstserestgsewsg", 4)
-      handleSwitch.rotate = 0
-   
+      //showMemoryModal("Something moved somewhere", 4)
+      handleSwitch.angle = -10;
+      woodBar.angle = 0;
 
 		}
 

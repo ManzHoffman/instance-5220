@@ -31,7 +31,7 @@ function spawnElements() {
     pos(2480, -130),
     rect(20, 20),
     opacity(0), // fully invisible
-    z(10),
+    z(100),
     "laserTrigger"
   ])
 
@@ -50,6 +50,7 @@ function spawnElements() {
     pos(2450, -145),
     scale(0.5),
     body({ isStatic: true }),
+     z(100),
     "laserSwitch"
 
   ])
@@ -61,6 +62,7 @@ function spawnElements() {
     pos(2520, -130),
     scale(0.4),
     body({ isStatic: true }),
+     z(100),
     "laserBase"
   ])
 
@@ -69,6 +71,7 @@ function spawnElements() {
     pos(3400, -130),
     scale(0.4),
     body({ isStatic: true }),
+     z(100),
     "laserBaseRevert"
   ])
 
@@ -109,6 +112,7 @@ function spawnElements() {
     area(),
     scale(0.5),
     body({ isStatic: true }),
+       z(100),
     area(),
 
   ])
@@ -118,6 +122,7 @@ function spawnElements() {
     pos(1630, -120),
     area(),
     scale(0.3),
+       z(100),
     //body({ isStatic: true }),
     area(),
 
@@ -131,7 +136,9 @@ function spawnElements() {
     scale(0.3),
     body({ isStatic: true }),
     area(),
-    rotate(PLATEFORM_ANGLE)
+       z(100),
+    rotate(PLATEFORM_ANGLE),
+    "darkWood"
 
   ])
 
@@ -142,6 +149,7 @@ function spawnElements() {
     scale(0.5),
     //body({ isStatic: true }),
     area(),
+    z(100),
     "handleSwitch"
    // rotate(PLATEFORM_ANGLE)
 
@@ -156,6 +164,7 @@ function spawnElements() {
     scale(0.5),
     body({ isStatic: true }),
     area(),
+    z(100),
 
   ])
 
@@ -166,6 +175,7 @@ function spawnElements() {
     scale(0.5),
     body({ isStatic: true }),
     area(),
+    z(100),
 
   ])
   add([
@@ -175,6 +185,7 @@ function spawnElements() {
     scale(0.5),
     body({ isStatic: true }),
     area(),
+    z(100),
 
   ])
   add([
@@ -184,6 +195,7 @@ function spawnElements() {
     scale(0.5),
     body({ isStatic: true }),
     area(),
+    z(100),
 
   ])
   add([
@@ -193,6 +205,7 @@ function spawnElements() {
     scale(0.5),
     body({ isStatic: true }),
     area(),
+    z(100),
 
   ])
 

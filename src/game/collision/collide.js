@@ -170,9 +170,12 @@ showScreenGlitch()
 
   player.onCollide("handleSwitch", (switching) => {
 
+  const handleSwitch = get("handleSwitch")[0]  // or use `.find()` if more than one
+
+
       if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;
 
-      if(PLATEFORM_ANGLE == -90)
+      if(handleSwitch.angle !== -10)
       {
 
         showNotification("E pour activer le levier !", 3);
