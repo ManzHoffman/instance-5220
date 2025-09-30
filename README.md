@@ -10,7 +10,7 @@ Votre but : explorer, résoudre des énigmes légères, collecter des fragments 
 ## 🎓 Projet de cours
 
 Ce projet a été réalisé dans le cadre du cours :  
-**"Programmation créative et jeu vidéo en JavaScript"**  
+**"Développement de jeu vidéo 2D"**  
 Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)  
 👉 [Voir la description complète du cours](https://gist.github.com/ipante/b75552f7430588fa790b712e5639ce6e)
 
