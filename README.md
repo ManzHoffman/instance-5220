@@ -60,4 +60,20 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 - **Système de scènes, dialogues, modals, collisions, FX** entièrement custom
 - **Audio** Splice(https://www.splice.com)  (boucles, FX, ambiances)
 
+## Recours aux LLM (IA générative)
+
+Le développement a partiellement fait appel à ChatGPT (GPT-5) pour :
+
+Brainstorming narratif (construction de la trame autour de F-27 et des fragments)
+Assistance technique (inventaire, collisions, modales, effets visuels)
+Rédaction et relecture (aide à la structuration du README et du code)
+
+Prompts essentiels :
+
+« Peux-tu m’aider à créer une animation glitch pour Kaplay ? »
+« Crée un inventaire en grille cliquable avec Kaplay.js »
+« Écris une narration autour d’un renne nommé F, lié à un code F27 »
+« Rédige un README conforme aux exigences du cours d’Isaac Pante »
+
+⚠️ Aucun texte narratif ou visuel généré par IA n’est utilisé directement comme asset dans le jeu.
 ---
