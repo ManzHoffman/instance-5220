@@ -15,6 +15,9 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 👉 [Voir la description complète du cours](https://gist.github.com/ipante/b75552f7430588fa790b712e5639ce6e)
 
 ---
+## 🧩 Aperçu
+
+![instance-5520](https://github.com/user-attachments/assets/4b5ffc82-8c3b-4f2e-82b0-0a30848fabca)
 
 ## 🕹️ Commandes
 
