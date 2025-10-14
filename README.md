@@ -64,16 +64,16 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 
 Le développement a partiellement fait appel à ChatGPT (GPT-5) pour :
 
-Brainstorming narratif (construction de la trame autour de F-27 et des fragments)
-Assistance technique (inventaire, collisions, modales, effets visuels)
-Rédaction et relecture (aide à la structuration du README et du code)
+- Brainstorming narratif (construction de la trame autour de F-27 et des fragments)
+- Assistance technique (inventaire, collisions, modales, effets visuels)
+- Rédaction et relecture (aide à la structuration du README et du code)
 
 Prompts essentiels :
 
-« Peux-tu m’aider à créer une animation glitch pour Kaplay ? »
-« Crée un inventaire en grille cliquable avec Kaplay.js »
-« Écris une narration autour d’un renne nommé F, lié à un code F27 »
-« Rédige un README conforme aux exigences du cours d’Isaac Pante »
+- « Peux-tu m’aider à créer une animation glitch pour Kaplay ? »
+- « Crée un inventaire en grille cliquable avec Kaplay.js »
+- « Écris une narration autour d’un renne nommé F, lié à un code F27 »
+- « Rédige une base de README conforme aux exigences du cours d’Isaac Pante »
 
 ⚠️ Aucun sprite n'a été génnéré par IA.
 ---
