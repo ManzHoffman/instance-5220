@@ -42,7 +42,7 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 
 ---
 
-## 🧩 Contenu du jeu
+## Contenu du jeu
 
 - ❄️ **Effets visuels glitch / VHS / neige**
 - 🧠 **Fragments de mémoire à collecter**
@@ -52,7 +52,7 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 
 ---
 
-## 🧪 Stack technique
+## Stack technique
 
 - **Kaboom.js** – Moteur de jeu 2D JavaScript
 - **Pixi.js / pixi-filters** – Pour certains effets visuels (glitch, shaders)
@@ -75,5 +75,5 @@ Prompts essentiels :
 « Écris une narration autour d’un renne nommé F, lié à un code F27 »
 « Rédige un README conforme aux exigences du cours d’Isaac Pante »
 
-⚠️ Aucun texte narratif ou visuel généré par IA n’est utilisé directement comme asset dans le jeu.
+⚠️ Aucun sprite n'a été génnéré par IA.
 ---
