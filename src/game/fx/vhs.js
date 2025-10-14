@@ -1,7 +1,5 @@
-// vhs.js
-
 window.addVHSEffects = function () {
-    // 1. Scanlines
+
     for (let y = 0; y < height(); y += 4) {
       add([
         rect(width(), 1),
@@ -13,7 +11,7 @@ window.addVHSEffects = function () {
       ])
     }
   
-    // 2. Screen flashes
+
     loop(6, () => {
       add([
         rect(width(), height()),
@@ -25,7 +23,7 @@ window.addVHSEffects = function () {
       ])
     })
   
-    // 3. Pixel noise
+
     loop(0.05, () => {
       for (let i = 0; i < 20; i++) {
         add([
@@ -40,7 +38,7 @@ window.addVHSEffects = function () {
       }
     })
   
-    // 4. Glitch slices
+
     loop(2, () => {
       const y = rand(0, height())
       const h = rand(2, 6)
@@ -63,7 +61,7 @@ window.addVHSEffects = function () {
       ])
     })
   
-    // 5. Ghost bars
+
     loop(5, () => {
       add([
         rect(width(), 2),

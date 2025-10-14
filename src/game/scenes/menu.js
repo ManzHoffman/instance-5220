@@ -10,9 +10,8 @@ scene("menu", () => {
 
   }
  
-  
-     // minimal setup
-     addVHSEffects() // call the global function
+
+     addVHSEffects() 
      addAuroras()
      add([
       sprite("background"),
@@ -79,7 +78,7 @@ scene("menu", () => {
 
     //reindeerAlone.flipX = true;
     //reindeerAlone.play(ANIM_IDLE);
-    let backMusic = play("menu", { loop: true,volume: 0.5 });
+    let backMusic = play("menu", { loop: true,volume: 0.1 });
     // Add background
 
     function createMenuButton(label, y, onClick) {

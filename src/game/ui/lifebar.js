@@ -49,6 +49,6 @@ window.Lifebar = (() => {
     update: updateLifebar,
     setValue,
     hide,
-    getValue: () => currentValue, // ✅ new getter
+    getValue: () => currentValue, 
   }
 })()

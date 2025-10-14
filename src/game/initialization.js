@@ -7,7 +7,7 @@ kaplay({
 })
 
 // INITIALIZING CONST GLOBAL VARIABLES
-const LEVEL_TESTING = true;
+const LEVEL_TESTING = false;
 
 
 // COLORS

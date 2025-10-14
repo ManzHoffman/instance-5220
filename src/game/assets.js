@@ -17,6 +17,8 @@ const SOUNDS = {
 	success: "./src/game/assets/sounds/success.wav",
 	notif: "./src/game/assets/sounds/notif.wav",
 	laser: "./src/game/assets/sounds/laser.wav",
+	platform:"./src/game/assets/sounds/platform.wav",
+	tramp:"./src/game/assets/sounds/tramp.wav",
 }
 
 // LOAD SOUNDS

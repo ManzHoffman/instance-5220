@@ -1,5 +1,3 @@
-// codePromptModal.js
-
 window.showCodePromptModal = function(promptText, onSuccess, correctCode = "F27") {
   const boxWidth = 600
   const boxHeight = 250
@@ -55,7 +53,7 @@ window.showCodePromptModal = function(promptText, onSuccess, correctCode = "F27"
   tween(inputText.opacity, 1, 0.6, (val) => inputText.opacity = val)
 
 const updateInput = () => {
-  // Show placeholders
+ 
   let display = ""
   for (let i = 0; i < MAX_CHARS; i++) {
     display += input[i] ? input[i].toUpperCase() + " " : "_ "
@@ -103,16 +101,5 @@ const backspaceHandler = onKeyPress("backspace", () => {
   input = input.slice(0, -1)
   updateInput()
 })
-/*
-const enterHandler = onKeyPress("enter", () => {
-  if (input.toLowerCase() === correctCode.toLowerCase()) {
-    cancelModal()
-    play("codeSuccess", { volume: 0.4 })
-    onSuccess()
-  } else {
-    play("error", { volume: 0.3 })
-    input = ""
-    updateInput()
-  }
-})*/
+
 }

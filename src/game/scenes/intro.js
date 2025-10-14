@@ -1,5 +1,5 @@
 scene("intro", (level) => {
-  addVHSEffects(); // keep your glitchy aesthetic
+  addVHSEffects(); 
   setBackground(COLOR_BLACK);
 
 

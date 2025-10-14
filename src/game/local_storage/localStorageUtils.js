@@ -1,5 +1,3 @@
-// localStorageUtils.js
-
 window.StorageUtils = (() => {
 
   function save(key, value) {
@@ -7,7 +5,7 @@ window.StorageUtils = (() => {
       const json = JSON.stringify(value)
       localStorage.setItem(key, json)
     } catch (e) {
-      console.error(`🔴 Failed to save to localStorage (${key}):`, e)
+      console.error(`Failed to save to localStorage (${key}):`, e)
     }
   }
 
@@ -16,7 +14,7 @@ window.StorageUtils = (() => {
       const json = localStorage.getItem(key)
       return json ? JSON.parse(json) : null
     } catch (e) {
-      console.error(`🔴 Failed to load from localStorage (${key}):`, e)
+      console.error(`Failed to load from localStorage (${key}):`, e)
       return null
     }
   }
@@ -25,7 +23,7 @@ window.StorageUtils = (() => {
     try {
       localStorage.removeItem(key)
     } catch (e) {
-      console.error(`🔴 Failed to remove from localStorage (${key}):`, e)
+      console.error(`Failed to remove from localStorage (${key}):`, e)
     }
   }
 
@@ -33,7 +31,7 @@ window.StorageUtils = (() => {
     try {
       localStorage.clear()
     } catch (e) {
-      console.error("🔴 Failed to clear localStorage:", e)
+      console.error(" Failed to clear localStorage:", e)
     }
   }
 

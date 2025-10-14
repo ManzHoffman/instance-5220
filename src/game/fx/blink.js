@@ -5,7 +5,7 @@ function blinkOnHit(item, duration = 0.6, blinkRate = 0.1) {
     timePassed += blinkRate
     if (timePassed >= duration) {
       clearInterval(interval)
-      item.hidden = false // Ensure visible at end
+      item.hidden = false 
     }
   }, blinkRate * 1000)
 }

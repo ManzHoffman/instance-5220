@@ -1,11 +1,9 @@
-// glitchCanvas.js
-
 let glitchCanvas = null;
 let glitchSketch = null;
-let fadeAlpha = 0; // goes from 0 to 255
+let fadeAlpha = 0; 
 
 window.showScreenGlitchFade = function (duration = 2.0) {
-  if (glitchCanvas) return; // already active
+  if (glitchCanvas) return; 
 
   glitchSketch = new p5((p) => {
     const canvasWidth = 1800;
@@ -49,7 +47,7 @@ p.draw = () => {
     p.rect(x, y, w, h);
   }
 
-  // 👇 finally apply the fade
+
   if (fadeAlpha > 0) {
     p.fill(0, fadeAlpha);
     p.rect(0, 0, canvasWidth, canvasHeight);
@@ -60,8 +58,8 @@ p.draw = () => {
 
   // Auto-remove
 setTimeout(() => {
-  // Start fade to black
-  const fadeDuration = 1000; // ms
+
+  const fadeDuration = 1000; 
   const fadeSteps = 60;
   let step = 0;
 
@@ -70,10 +68,10 @@ setTimeout(() => {
     fadeAlpha = p.map(step, 0, fadeSteps, 0, 255);
     if (step >= fadeSteps) {
       clearInterval(fadeInterval);
-      window.removeScreenGlitch(); // remove canvas after fade
+      window.removeScreenGlitch(); 
     }
   }, fadeDuration / fadeSteps);
-}, (duration - 1) * 1000); // start fade 1s before end
+}, (duration - 1) * 1000); 
 
 };
 

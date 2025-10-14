@@ -15,7 +15,7 @@ for (var key in objectArray) {
 
  
     if (objectArray.hasOwnProperty(key)) {
-      // Get the title (property name) and value of each entry
+      
       var title = key;
       var value = objectArray[key];
      

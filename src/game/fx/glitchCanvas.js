@@ -1,5 +1,3 @@
-// glitchCanvas.js
-
 let glitchCanvas = null;
 let glitchSketch = null;
 

@@ -6,7 +6,7 @@ window.addSnow = function () {
 
     add([
       rect(size, size),
-      pos(rand(0, width()), rand(0, height())),  // fill entire screen
+      pos(rand(0, width()), rand(0, height())), 
 
       color(255, 255, 255),
       opacity(rand(0.2, 0.6)),

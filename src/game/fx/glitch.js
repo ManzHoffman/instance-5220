@@ -50,7 +50,7 @@ window.triggerScreenGlitch = function(duration = 1.2, fadeout = false) {
     camPos(camPos().add(vec2(rand(-3, 3), rand(-3, 3))))
   })
 
-  // Optional flash
+
   const flash = loop(rand(0.3, 0.5), () => {
     glitchLayer.color = rgb(rand(100, 255), rand(100, 255), rand(100, 255))
     glitchLayer.opacity = rand(0.05, 0.15)

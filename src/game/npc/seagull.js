@@ -21,10 +21,9 @@ function spawnSeagull(posx, posy) {
     bird.onUpdate(() => {
       // Glide
       bird.move(bird.dir * bird.speed, 0)
-      // Bob up and down gently
+ 
       bird.pos.y = bird.startY + Math.sin(time() * 2 + bird.dir) * 4
   
-      // Optional: despawn if off-screen far away
       if (bird.pos.x < camPos().x - width() || bird.pos.x > camPos().x + width() * 2) {
         destroy(bird)
       }

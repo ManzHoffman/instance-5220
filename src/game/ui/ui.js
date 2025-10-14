@@ -2,7 +2,7 @@
     width: 420,
     height: 70,
     margin: 20,
-    gap: 10,           // space between notifs
+    gap: 10,          
   };
   
 function getControlsDescription() {
@@ -61,17 +61,17 @@ function showDeerThought(content, options = {}) {
     })
   }
   function layoutNotifs() {
-  const boxes = get("ui-notif");              // only the background boxes carry layout
+  const boxes = get("ui-notif");              
   boxes.forEach((box, i) => {
     const y = NOTIF.margin + i * (NOTIF.height + NOTIF.gap);
     tween(box.pos.y, y, 0.2, v => {
       box.pos.y = v;
-      if (box.text) box.text.pos.y = v + 20;  // keep text in sync
+      if (box.text) box.text.pos.y = v + 20;  
     });
   });
 }
 function showNotification(content, duration = 3) {
-  // if (modalIsOpen()) return;  // optional guard from earlier
+
 
   const xLeft = width() - NOTIF.width - NOTIF.margin;
   const idx = get("ui-notif").length;
@@ -96,9 +96,9 @@ function showNotification(content, duration = 3) {
     fixed(),
   ]);
 
-  box.text = textBox; // link for layout
+  box.text = textBox; 
 
-  play("notif", { loop: false, volume: 0.3 });
+  play("notif", { loop: false, volume: 0.1});
   tween(box.opacity, 0.95, 0.3, v => box.opacity = v);
   tween(textBox.opacity, 1, 0.3, v => textBox.opacity = v);
 
@@ -108,7 +108,7 @@ function showNotification(content, duration = 3) {
     wait(0.5, () => {
       destroy(textBox);
       destroy(box);
-      layoutNotifs();  // pull remaining notifs up
+      layoutNotifs();  
     });
   });
 }
@@ -117,7 +117,7 @@ function showNotification(content, duration = 3) {
 function showInventoryModal(content, duration = 4) {
   const boxWidth = 600
   const boxHeight = 220
-  let closed = false // ✅ track if the modal is already closed
+  let closed = false 
 
   const boxPos = vec2(center().x - boxWidth / 2, center().y - boxHeight / 2)
 
@@ -193,7 +193,6 @@ function showInventoryModal(content, duration = 4) {
   tween(textBox.opacity, 1, 0.6, (val) => textBox.opacity = val)
   tween(closeBtn.opacity || 0, 1, 0.4, (val) => closeBtn.opacity = val)
 
-  // Auto-close fallback
   wait(duration, () => {
     closeModal()
   })
@@ -263,30 +262,74 @@ function showInventoryModal(content, duration = 4) {
     })
   }
   
-  function playDeerThoughts(thoughts, onComplete) {
-    let timeOffset = 0
+
+
+function playDeerThoughts(thoughts, onComplete) {
+  let timeOffset = 0
+  const cancels = []        
+  let skipped = false
+
+
+  const hint = add([
+    text("Appuyez sur ESPACE pour passer", { size: 18, font: "ussr" }),
+    pos(24, height() - 40),
+    color(COLOR_BLACK),
+    fixed(),
+    opacity(0.8),
+    z(999),
+    "deerThoughtHint",
+  ])
+
+
+  const cleanup = () => {
+    if (skipped) return
+    skipped = true
+
+    cancels.forEach(fn => fn && fn())
+
+    destroyAll("deerThought")
+    destroy(hint)
   
-    for (const t of thoughts) {
-      const duration = t.duration || 4
-      const delay = t.delay || 1
-  
-      wait(timeOffset, () => {
-        showDeerThought(t.text, {
-          duration,
-          y: t.y || height() - 120,
-        })
-      })
-  
-      timeOffset += duration + delay
-    }
-  
-    // Schedule the callback AFTER the last thought ends
-    if (onComplete) {
-      wait(timeOffset, () => {
-        onComplete()
-      })
-    }
+    keySkip.cancel()
+    clickSkip.cancel()
+ 
+    onComplete && onComplete()
   }
+
+
+  const keySkip = onKeyPress("space", cleanup)
+  const clickSkip = onClick(cleanup) 
+
+  // Schedule all thoughts
+  for (const t of thoughts) {
+    const duration = t.duration || 4
+    const delay = t.delay ?? 1
+
+    const w = wait(timeOffset, () => {
+      if (skipped) return
+      showDeerThought(t.text, {
+        duration,
+        y: t.y || height() - 120,
+      })
+    })
+    cancels.push(w.cancel)
+
+    timeOffset += duration + delay
+  }
+
+ 
+  const endW = wait(timeOffset, () => {
+    if (skipped) return
+    destroy(hint)
+    keySkip.cancel()
+    clickSkip.cancel()
+    onComplete && onComplete()
+  })
+  cancels.push(endW.cancel)
+
+
+  return { cancel: cleanup }
+}
 
   
   

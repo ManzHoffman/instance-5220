@@ -159,11 +159,11 @@ player.onUpdate(() => {
 
 // Function to make player blink
 async function playerHitAnim(player, duration) {
-// Function to make player blink
-player.hidden = true; // Ensure player is visible after animation
+
+player.hidden = true; 
 
 wait(duration, () => {
-    player.hidden = false; // Ensure player is visible after animation
+    player.hidden = false; 
   })
 
 }

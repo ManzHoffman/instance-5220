@@ -1,5 +1,3 @@
-// itemIdleAnimation.js
-
 window.itemIdleAnimation = function (item, {
   floatAmount = 5,
   scaleAmount = 0.05,

@@ -5,7 +5,7 @@ const aurora = add([
   sprite("borealisPurple"),
   pos(-20, 110),
   z(10),
-  { speed: 5 }, // custom property for animation
+  { speed: 5 }, 
   fixed(),
 ])
 
@@ -13,7 +13,7 @@ const aurora_top = add([
   sprite("borealis"),
   pos(-350, -290),
   z(15),
-  { speed: 5 }, // custom property for animation
+  { speed: 5 }, 
   fixed(),
 ])
 

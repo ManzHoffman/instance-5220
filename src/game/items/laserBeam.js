@@ -1,7 +1,7 @@
 
 function spawnLaserBeam(x, y, lengthInTiles, direction = "down") {
-  const segmentSize = 30 // height or width of one segment
-  const segmentName = "blue_laser" // your sprite name
+  const segmentSize = 30 
+  const segmentName = "blue_laser" 
   const beam = []
 
   for (let i = 0; i < lengthInTiles; i++) {

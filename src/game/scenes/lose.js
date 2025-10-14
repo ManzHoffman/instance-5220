@@ -1,6 +1,5 @@
 scene("lose", () => {
-     // minimal setup
-     addVHSEffects() // call the global function
+     addVHSEffects() 
      addAuroras()
 
     add([

@@ -20,7 +20,7 @@ window.Inventory = (() => {
 function showInventoryGrid() {
   if (isOpen) return
   isOpen = true
-  IS_GAME_PAUSED = true  // 🧊 Pause the game logic
+  IS_GAME_PAUSED = true 
 
   const cols = 4
   const rows = 3
@@ -58,7 +58,7 @@ function showInventoryGrid() {
     width: modalWidth - 40,
     lineSpacing: 8,
   }),
-  pos(origin.x + 20, origin.y + modalHeight + 10), // below the grid
+  pos(origin.x + 20, origin.y + modalHeight + 10), 
   color(WHITE),
   z(305),
   fixed(),
@@ -84,7 +84,7 @@ function showInventoryGrid() {
     }
   }
 
-  // Add icons to the grid
+// Add icons to the grid
 items.forEach((item, i) => {
   const row = Math.floor(i / cols)
   const col = i % cols
@@ -118,7 +118,7 @@ icon.onHover(() => {
     ])
   }
 
-  // 📝 Show item description
+ 
   descriptionText.text = item.name + '\n\n' + item.description
 })
 
@@ -129,7 +129,7 @@ icon.onHoverEnd(() => {
     hoverEffect = null
   }
 
-  // 🧹 Clear description
+ 
   descriptionText.text = ""
 })
 
@@ -140,7 +140,7 @@ icon.onHoverEnd(() => {
     if (isOpen) {
       destroyAll("invUI")
       isOpen = false
-        IS_GAME_PAUSED = false  // 🔥 Resume the game logic
+        IS_GAME_PAUSED = false 
 
     }
   })

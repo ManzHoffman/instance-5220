@@ -15,7 +15,7 @@ scene("settings", () => {
 
   const startY = 120;
 
-  controlsList.forEach((entry, i) => {
+  CONTROLS.forEach((entry, i) => {
     add([
       text(`${entry.action}: ${entry.key}`, {
         size: 20,
@@ -27,7 +27,7 @@ scene("settings", () => {
     ]);
   });
 
-  // Back hint
+  
   add([
     text("Appuyez sur ÉCHAP pour revenir", {
       size: 16,
@@ -38,7 +38,6 @@ scene("settings", () => {
     fixed(),
   ]);
 
-  // Optional background
   add([
     sprite("backgroundNight"),
     fixed(),
@@ -46,6 +45,6 @@ scene("settings", () => {
   ]);
 
   onKeyPress("escape", () => {
-    go("menu"); // ⬅️ Return to menu
+    go("menu"); 
   });
 });

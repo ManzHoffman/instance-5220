@@ -1,10 +1,10 @@
 function spawnSpikes(x, y, scaleValue) {
   const spike = add([
-    sprite("smallSpike"),            // your spike sprite name
+    sprite("smallSpike"),            
     pos(x, y),
     scale(scaleValue),
-    area(),                      // allows collision detection
-    body({ isStatic: true }),    // static: it doesn't fall
+    area(),                      
+    body({ isStatic: true }),    
     z(4),
     "hazard",
     { deadly: true },

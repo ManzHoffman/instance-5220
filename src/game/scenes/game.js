@@ -13,10 +13,9 @@ if (!LEVEL_TESTING  )
 
 
 // define gravity
-
 setGravity(GRAVITY_AMOUNT)
 
-Lifebar.create(1) // full bar
+Lifebar.create(1) 
 
 
 
@@ -82,8 +81,7 @@ playDeerThoughts([
     { text: "Mais quelque chose... m’attend.", duration: 3 },
     { text: "Alors je continue.", duration: 2 },
   ], () => {
-    // 🎯 Trigger next step here:
-    // e.g., unlock movement, start snowstorm, fade in next zone
+
     IS_CINEMATIC_MODE_ON = false;
     
 
@@ -119,14 +117,16 @@ onKeyPress(controls.help, () => {
 
 
 onKeyPress(controls.activate, () => {
-  const handleSwitch = get("handleSwitch")[0]  // or use `.find()` if more than one
-  const woodBar = get("darkWood")[0]  // or use `.find()` if more than one
+  const handleSwitch = get("handleSwitch")[0]  
+  const woodBar = get("darkWood")[0]  
 
   if (IS_CINEMATIC_MODE_ON || handleSwitch.angle == -10) return;
 
 	if (handleSwitch.pos.dist(player.pos) < 100) {
 
-      //showMemoryModal("Something moved somewhere", 4)
+      showMemoryModal("Quelque chose vient de bouger", 4)
+      play("platform", { loop: false });
+
       handleSwitch.angle = -10;
       woodBar.angle = 0;
 

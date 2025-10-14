@@ -9,10 +9,10 @@ function addText(textMain, size, color, fontType, align, posx, posy) {
     anchor(align),
     pos(posx, posy),
     fixed(),
-    z(100), // optional, but helps layering
+    z(100), 
   ]);
 
   changeColor(textToEdit, color);
 
-  return textToEdit; // ✅ RETURN IT!
+  return textToEdit; 
 }

@@ -10,8 +10,7 @@ function setupCollisions(player) {
         name: "Fragment de mémoire",
         icon: "fragment",
         type: ITEM_FRAGMENT,
-        description: frag.message, // ✨ Store the message as a description
-        scale: 0.07,
+        description: frag.message, 
       })
 
       //playerCode.push(frag.codePiece)
@@ -20,7 +19,7 @@ function setupCollisions(player) {
       frag.scale = vec2(0.2)
       play("fragment_get")
 
-      frag.destroy() // if you want it to disappear completely
+      frag.destroy() 
 
       //showNotification(NOTIF_ACTIONS.key_missing, 3)
 
@@ -44,7 +43,7 @@ function setupCollisions(player) {
       name: "Clé de porte",
       icon: "key",
       type: ITEM_KEY_DOOR_01,
-      description: "Une vieille clé", // ✨ Store the message as a description
+      description: "Une vieille clé",
       scale: 0.3,
     })
 
@@ -93,12 +92,12 @@ function setupCollisions(player) {
       return;
     }
 
-    const doorClosed = get("doorClosed")[0]  // or use `.find()` if more than one
+    const doorClosed = get("doorClosed")[0] 
     doorClosed.use(sprite("doorOpened"))
     IS_CINEMATIC_MODE_ON = true;
 
 showScreenGlitch()
-      //showScreenGlitchFade()
+   
         WIND_AMB.stop();
         WALK_NOISE.stop();
 
@@ -110,13 +109,7 @@ showScreenGlitch()
       })
 
 
-    //showCodePromptModal("Un mot… un code scellé.\nEntrez-le pour avancer.", () => {
-    // ✅ Success!
-    //  destroy(t)
-    // showMemoryModal("🔓 Le chemin s’ouvre devant vous.")
-    // You could also play an animation, open a door, or go to the next level
-    //  })
-    // }
+
   })
   player.onCollide("fuel", (t) => {
    
@@ -124,7 +117,7 @@ showScreenGlitch()
       name: "Fuel",
       icon: "small_fuel_red",
       type: ITEM_FUEL,
-      description: "Un jerrican d'huile à moitié plein.", // ✨ Store the message as a description
+      description: "Un jerrican d'huile à moitié plein.", 
       scale: 0.15,
     })
 
@@ -137,26 +130,23 @@ showScreenGlitch()
   player.onCollide("laserTrigger", (t) => {
     if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
-    // if (!t.activated) {
-    //     t.activated = true // prevent repeat activation
+
 
 
     showCodePromptModal("Saisissez le code pour activer le pont.\n", () => {
-      // ✅ Success!
-      const laserSwitch = get("laserSwitch")[0]  // or use `.find()` if more than one
-      const laserBase = get("laserBase")[0]  // or use `.find()` if more than one
-      const laserBaseRevert = get("laserBaseRevert")[0]  // or use `.find()` if more than one
 
+      const laserSwitch = get("laserSwitch")[0]  
+      const laserBase = get("laserBase")[0]  
+      const laserBaseRevert = get("laserBaseRevert")[0]  
       laserSwitch.use(sprite("blue_switch_pressed"))
       laserBase.use(sprite("laser_blue_on"))
       laserBaseRevert.use(sprite("laser_blue_on"))
       laserBaseRevert.flipX = true;
       const beam = spawnLaserBeam(2630, -85, 26, "right")
-      laserEffect.applyFlicker(beam, 0.2, 6) // intensity & speed
+      laserEffect.applyFlicker(beam, 0.2, 6) 
 
       destroy(t)
-      // showMemoryModal("🔓 Le chemin s’ouvre devant vous.")
-      // You could also play an animation, open a door, or go to the next level
+
     })
 
 
@@ -170,7 +160,7 @@ showScreenGlitch()
 
   player.onCollide("handleSwitch", (switching) => {
 
-  const handleSwitch = get("handleSwitch")[0]  // or use `.find()` if more than one
+  const handleSwitch = get("handleSwitch")[0]  
 
 
       if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;
@@ -194,25 +184,25 @@ player.onCollide("trampolineJump", (tramp) => {
     return;
   }
 
-  // simple cooldown per trampoline
+
   if (tramp.cooldown) return;
   tramp.cooldown = true;
   wait(BOUNCE_CD, () => tramp.cooldown = false);
 
-  // only bounce if we were falling onto it (optional but feels nicer)
+
   if (player.vel && player.vel.y >= 0) {
-    // Prefer built-in jump() if you have body()
+   
     if (typeof player.jump === "function") {
       player.jump(BOUNCE_FORCE);
     } else {
-      // otherwise, kick velocity upward
+     
       player.vel.y = -BOUNCE_FORCE;
     }
 
     shake(6);
-    //play("boing", { volume: 0.6 });
+    play("tramp", { volume: 0.4 });
 
-    // squash & stretch (if the trampoline has scale())
+ 
     if (tramp.scale) {
       const baseY = tramp.scale.y;
       tween(baseY, baseY * 0.6, 0.07, v => tramp.scale.y = v);
@@ -220,21 +210,7 @@ player.onCollide("trampolineJump", (tramp) => {
     }
   }
 });
-  /*
-    player.onCollide("codeTrigger", (t) => {
-    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return
 
-   // if (!t.activated) {
- //     t.activated = true // prevent repeat activation
-  
-      showCodePromptModal("Un mot… un code scellé.\nEntrez-le pour avancer.", () => {
-        // ✅ Success!
-        destroy(t)
-        showMemoryModal("🔓 Le chemin s’ouvre devant vous.")
-        // You could also play an animation, open a door, or go to the next level
-      })
-   // }
-  })*/
 
 
 
