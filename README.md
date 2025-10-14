@@ -1,9 +1,12 @@
 # 🦌 Instance 5220
 
-Instance 5220 est un jeu de plateforme narratif et atmosphérique réalisé en JavaScript avec le moteur **Kaboom.js**.  
-Vous incarnez un étrange cervidé, perdu dans un monde glacial, fragmenté, parcouru de machines abandonnées et d’échos du passé.
+**Instance 5220** est une **expérience vidéoludique narrative en 2D**, développée en JavaScript avec **Kaplay.js** (ex-Kaboom).  
+Le joueur incarne **F**, une créature mi-humaine, mi-renne, qui s’éveille dans une toundra gelée, au milieu d’un monde fragmenté par la mémoire et le code.
 
-Votre but : explorer, résoudre des énigmes légères, collecter des fragments de mémoire… et découvrir ce que cache le mystérieux code **F27**.
+À travers un univers glitché et une narration minimale, le joueur explore un territoire onirique à la recherche de **fragments de mémoire**.  
+Ces indices, combinés, ouvrent un **pont laser** vers une porte verrouillée : la clé du passé de F… ou de son effacement.
+
+Le jeu mêle **ambiance nordique**, **effets VHS/pixel glitch**, **interfaces diegétiques** et **puzzles environnementaux** pour une courte expérience introspective.
 
 ---
 
@@ -18,6 +21,13 @@ Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)
 ## Aperçu
 
 ![instance-5520](https://github.com/user-attachments/assets/4b5ffc82-8c3b-4f2e-82b0-0a30848fabca)
+
+## Installation & Lancement
+
+1. **Cloner le dépôt :**
+   ```bash
+   git clone https://github.com/<votre_nom_utilisateur>/instance-5220.git
+   cd instance-5220
 
 ## Commandes
 
