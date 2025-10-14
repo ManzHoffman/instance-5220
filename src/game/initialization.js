@@ -79,6 +79,7 @@ var IS_TYPING_CODE = false;
 
 let inventoryItems = []
 let inventoryOpen = false
+var glitchCanvas = null;
 
 
 // States

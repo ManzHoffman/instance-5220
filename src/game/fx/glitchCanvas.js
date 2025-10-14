@@ -1,4 +1,3 @@
-let glitchCanvas = null;
 let glitchSketch = null;
 
 window.showScreenGlitch = function (duration = 2.0) {

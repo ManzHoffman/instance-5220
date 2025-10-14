@@ -10,6 +10,7 @@ function setupCollisions(player) {
         name: "Fragment de mémoire",
         icon: "fragment",
         type: ITEM_FRAGMENT,
+        scale: 0.08,                  // small and consistent in the grid
         description: frag.message, 
       })
 

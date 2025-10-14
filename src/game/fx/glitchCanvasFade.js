@@ -1,4 +1,3 @@
-let glitchCanvas = null;
 let glitchSketch = null;
 let fadeAlpha = 0; 
 
