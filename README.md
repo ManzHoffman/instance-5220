@@ -30,6 +30,14 @@ Ce projet a été réalisé dans le cadre du cours :
    git clone https://github.com/<votre_nom_utilisateur>/instance-5220.git
    cd instance-5220
 
+2. **Téléchargement et installation de VS Code et de l'extension LiveServer :**
+   https://code.visualstudio.com/
+   https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+4. ****
+   https://code.visualstudio.com/   
+   
+
 ## Commandes
 
 | Action                     | Touche         |
