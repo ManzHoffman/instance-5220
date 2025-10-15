@@ -33,9 +33,6 @@ Ce projet a été réalisé dans le cadre du cours :
 2. **Téléchargement et installation de VS Code et de l'extension LiveServer :**
    https://code.visualstudio.com/
    https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-4. ****
-   https://code.visualstudio.com/   
    
 
 ## Commandes
