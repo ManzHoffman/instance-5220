@@ -65,6 +65,7 @@ Ce projet a été réalisé dans le cadre du cours :
 - **p5.js (expérimental)** – Pour overlays custom comme le glitchCanvas
 - **Système de scènes, dialogues, modals, collisions, FX** entièrement custom
 - **Audio** Splice(https://www.splice.com)  (boucles, FX, ambiances)
+- **Sprites/ assets** https://www.gamedeveloperstudio.com/ ()
 
 ## Recours aux LLM (IA générative)
 
