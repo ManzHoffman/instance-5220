@@ -66,7 +66,7 @@ Ce projet a été réalisé dans le cadre du cours :
 
 ## Stack technique
 
-- **Kaboom.js** – Moteur de jeu 2D JavaScript
+- **Kaplay.js (Kaboom.js)** – Moteur de jeu 2D JavaScript
 - **Pixi.js / pixi-filters** – Pour certains effets visuels (glitch, shaders)
 - **p5.js (expérimental)** – Pour overlays custom comme le glitchCanvas
 - **Audio** Splice(https://www.splice.com)  (boucles, FX, ambiances)
