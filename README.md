@@ -63,9 +63,8 @@ Ce projet a été réalisé dans le cadre du cours :
 - **Kaboom.js** – Moteur de jeu 2D JavaScript
 - **Pixi.js / pixi-filters** – Pour certains effets visuels (glitch, shaders)
 - **p5.js (expérimental)** – Pour overlays custom comme le glitchCanvas
-- **Système de scènes, dialogues, modals, collisions, FX** entièrement custom
 - **Audio** Splice(https://www.splice.com)  (boucles, FX, ambiances)
-- **Sprites/ assets** https://www.gamedeveloperstudio.com/ ()
+- **Sprites/ assets** https://www.gamedeveloperstudio.com/ 
 
 ## Recours aux LLM (IA générative)
 
