@@ -245,7 +245,7 @@ function showInventoryModal(content, duration = 4) {
     tween(box.opacity, 0.95, 0.4, (val) => box.opacity = val)
     tween(textBox.opacity, 1, 0.6, (val) => textBox.opacity = val)
   
-    play("fragment_get",{ loop: false,volume: 0.3 })
+    play("fragment_get",{ loop: false,volume: 0.2 })
   
     // Auto-close after duration
     wait(duration, () => {

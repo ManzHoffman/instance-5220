@@ -11,7 +11,7 @@ scene("menu", () => {
 
   }
  
-    let backMusic = play("menu", { loop: true,volume: 0.1 });
+   // let backMusic = play("menu", { loop: true,volume: 0.1 });
      addVHSEffects() 
      addAuroras()
      add([
@@ -129,7 +129,7 @@ scene("menu", () => {
 
 
     createMenuButton(menu.play, height() / 2 - 60, () => {
-      backMusic.stop("menuBackground")
+      backMusic.stop("menu")
       
  
       go("intro", 1)
@@ -140,7 +140,7 @@ scene("menu", () => {
     })
     
     createMenuButton(menu.options, height() / 2 + 60, () => {
-      backMusic.stop("menuBackground")
+      backMusic.stop("menu")
         go("settings")
     })
 

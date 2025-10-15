@@ -81,7 +81,7 @@ window.showSoundPopup = function () {
         const ctx = new AudioContext()
         ctx.resume()
       }
-      play("menu", { loop: true, volume: 0.1 }) // start background music
+       backMusic = play("menu", { loop: true, volume: 0.1 }) // start background music
     } catch (e) {
       console.warn("Audio context unlock failed", e)
     }
