@@ -1,6 +1,7 @@
 // A Journey North - TITLE 
 // Create game menu scene
 scene("menu", () => {
+  showSoundPopup() // shows popup until the user clicks
 
   if (LEVEL_TESTING)
   {
@@ -10,7 +11,7 @@ scene("menu", () => {
 
   }
  
-
+    let backMusic = play("menu", { loop: true,volume: 0.1 });
      addVHSEffects() 
      addAuroras()
      add([
@@ -78,7 +79,7 @@ scene("menu", () => {
 
     //reindeerAlone.flipX = true;
     //reindeerAlone.play(ANIM_IDLE);
-    let backMusic = play("menu", { loop: true,volume: 0.1 });
+    
     // Add background
 
     function createMenuButton(label, y, onClick) {
