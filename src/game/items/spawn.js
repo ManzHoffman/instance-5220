@@ -479,7 +479,7 @@ spawnSpikes(2600, 450, 0.7)
 spawnSpikes(2900, 420, 0.8)
 
   spawnMemoryFragment(1500, 370, {
-    message: "« Ce mot me hante encore. Fynn…  Une lettre gravée. »",
+    message: "« Ce premier mot me hante encore. Fynn…  Une lettre gravée. »",
     codePiece: "F"
   })
 
@@ -489,7 +489,7 @@ spawnSpikes(2900, 420, 0.8)
   })
 
   spawnMemoryFragment(4560, -300, {
-    message: "« Sept marches. Sept silences. »",
+    message: "« Enfin sept marches. Sept silences. »",
     codePiece: "7"
   })
 
