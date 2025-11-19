@@ -467,6 +467,7 @@ function deg2rad(d) { return d * Math.PI / 180; }
 
 
   //const seagull = spawnSeagull(0,0);
+  /*
   spawnSpikes(700, 450, 0.6)
 
   spawnSpikes(990, 420, 0.8)
@@ -477,20 +478,25 @@ spawnSpikes(2600, 450, 0.7)
 
 
 spawnSpikes(2900, 420, 0.8)
+*/
 
   spawnMemoryFragment(1500, 370, {
-    message: "« Ce premier mot me hante encore. Fynn…  Une lettre gravée. »",
-    codePiece: "F"
+    message: "« Je me souviens maintenant… Un mot gravé dans la neige qui commençait par la lettre N.»",
+    codePiece: "N"
   })
 
   spawnMemoryFragment(3400, 250, {
-    message: "« Deux cris. Deux pas. Combien de fois suis-je tombé ? »",
-    codePiece: "2"
+    message: "Une orientation, un cercle, une deuxième lettre ronde !",
+    codePiece: "O"
   })
 
   spawnMemoryFragment(4560, -300, {
-    message: "« Enfin sept marches. Sept silences. »",
-    codePiece: "7"
+    message: "Trois pierres, alignées comme des repères. Elles pointaient toutes vers une même direction. R… comme route ?",
+    codePiece: "R"
+  })
+  spawnMemoryFragment(4800, -300, {
+    message: "Et puis le dernier écho… un son déformé : La lettre D… comme départ… ou dernier adieu ?",
+    codePiece: "R"
   })
 
 

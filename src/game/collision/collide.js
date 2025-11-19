@@ -60,7 +60,7 @@ function setupCollisions(player) {
 
 
   })
-
+/*
   player.onCollide("hazard", (spike) => {
 
     console.log("collision with spike")
@@ -77,7 +77,7 @@ function setupCollisions(player) {
     //play("fragment_get")
 
 
-  })
+  })*/
 
 
 

@@ -1,5 +1,8 @@
 scene("game", (level) => {
 
+FogBar.create(0) 
+FogSystem.init()      
+FogSystem.animateTo(1, 120) 
 
  WIND_AMB = play("windAmb", { loop: true,volume: 1 });
 
@@ -14,8 +17,6 @@ if (!LEVEL_TESTING  )
 
 // define gravity
 setGravity(GRAVITY_AMOUNT)
-
-Lifebar.create(1) 
 
 
 
@@ -38,13 +39,13 @@ add([
   
     fixed(),
   ])
-/*
+
   add([
     sprite("fog"),
       fixed(),
     
   ])
-*/
+
 
   
 
@@ -74,7 +75,7 @@ add([
 
 
 playDeerThoughts([
-    { text: "Il fait froid. Mais ce n’est pas le froid que je connais.", duration: 3},
+    { text: "Je ne sais plus ou je suis.", duration: 3},
     //{ text: "Je marche. C’est tout ce que je sais faire.", duration: 4 },
     { text: "Le ciel est différent.", duration: 2 },
     { text: "Je ne me souviens de rien.", duration: 2 },

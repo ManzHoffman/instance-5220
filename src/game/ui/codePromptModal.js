@@ -1,7 +1,7 @@
-window.showCodePromptModal = function(promptText, onSuccess, correctCode = "F27") {
+window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRET_CODE) {
   const boxWidth = 600
   const boxHeight = 250
-  const MAX_CHARS = 3
+  const MAX_CHARS = 4
 
   let input = ""
 

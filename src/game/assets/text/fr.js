@@ -4,13 +4,7 @@ const menu = {
   resume:"Reprendre",
 
 };
-const level1 = {
-  title: "Instance 5220",
-  localisation: "69°42'N 147°12'E — Janvier 2022",
-  date: "Juillet 2023",
-  description:"Malgré les températures basses et le début de saison, le fjord n'est plus complétement gelé. Attention à la gléace parfois fragile.",
-  start:"Appuyer sur ESPACE pour commencer",
-};
+
 const loose = {
 title: "Appuyer sur ESPACE pour continuer",
 
@@ -33,12 +27,15 @@ leftAndRight: "Utilise A et D pour te déplacer à gauche et à droite\n\nAppuie
 jump: "Utilise la barre espace pour sauter",
 
 };*/
-  const lines = [
-    "[Initialisation . . .]",
-    "[Instance: 5220]",
-    "[69°42’N 147°12’E]",
-    "[Janvier 2022]",
-  ];
+const lines = [
+  "[Réactivation en cours . . .]",
+  "[Sujet : Renne nommé Fenrir]",
+  "[Vous avez chuté violemment dans la neige]",
+  "[Votre mémoire est fracturée en 3 fragments]",
+  "[Ces fragments sont dispersés dans votre environnement]",
+  "[Retrouvez-les pour comprendre ce qui vous est arrivé]",
+  "[Chargement du monde . . .]",
+];
 
     const end_lines = [
     "[Reconstruction Complete]",
@@ -49,7 +46,7 @@ jump: "Utilise la barre espace pour sauter",
 
   // End  lines
 
-
+const SECRET_CODE = "NORD";
   const NOTIF_ACTIONS = {
   key_missing: "Une clé est requise !",
 };

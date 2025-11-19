@@ -119,7 +119,7 @@ const ANIMATED_SPRITES =
 	playerDie:[{name: "playerDie", src:"./src/game/assets/elements/player/basicReindeer/reindeer_die.png",sliceX:5,sliceY:2,anim: ANIM_DIE,from:0,to:9,speed:FRAME_SPEED,loop:false}],
 	playerLaying:[{name: "playerLaying", src:"./src/game/assets/elements/player/basicReindeer/reindeer_laying.png",sliceX:5,sliceY:4,anim: ANIM_CHILL,from:0,to:19,speed:FRAME_SLOW_SPEED,loop:true}],
 	orb:[{name: "orb", src:"./src/game/assets/elements/obj/orb_anim.png",sliceX:4,sliceY:4,anim: ANIM_ORB,from:0,to:15,speed:FRAME_SLOW_SPEED,loop:true}],
-	smallSpike:[{name: "smallSpike", src:"./src/game/assets/elements/spikes/long_wood/wood_spike_sprite_sheet.png",sliceX:5,sliceY:1,anim: ANIM_SP,from:0,to:4,speed:FRAME_SLOW_SPEED,loop:true}],
+	//smallSpike:[{name: "smallSpike", src:"./src/game/assets/elements/spikes/long_wood/wood_spike_sprite_sheet.png",sliceX:5,sliceY:1,anim: ANIM_SP,from:0,to:4,speed:FRAME_SLOW_SPEED,loop:true}],
 
 
 	//playerEat:[{name: "playerDie", src:"./src/game/assets/elements/player/basicReindeer/reindeer_eat.png",sliceX:5,sliceY:2,anim: ANIM_EAT,from:0,to:9,speed:FRAME_SPEED,loop:false}],
@@ -129,7 +129,14 @@ const ANIMATED_SPRITES =
 	//basic_weapon_player:[{name: "basic_weapon_player", src:"./src/game/assets/elements/projectile/basic_weapon_player.png",sliceX:3,sliceY:2,anim: ANIM_BASIC_WEAPON_P,from:0,to:5,speed:3,loop:true}],
 	//seagullFly:[{name: "seagullFly", src:"./src/game/assets/elements/npc/seagull/seagull_fly.png",sliceX:4,sliceY:3,anim: ANIM_S_FLY,from:0,to:9,speed:5,loop:true}],
 	friendIdle:[{name: "friendIdle", src:"./src/game/assets/elements/npc/friend/friend_idle.png",sliceX:5,sliceY:4,anim: ANIM_IDLE,from:0,to:19,speed:FRAME_SPEED,loop:true}],
-
+	fog: [
+		{
+			name: "fogPiece",
+			src: "./src/game/assets/fog.png",
+			sliceX: 2,   
+			sliceY: 3,
+		}
+	],
 }
 
 loadGameElements(ANIMATED_SPRITES,"animatedSprite")

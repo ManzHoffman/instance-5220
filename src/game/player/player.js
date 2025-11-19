@@ -84,7 +84,7 @@ player.onUpdate(() => {
   }
 
 
-  if (player.pos.y >= FALL_DEATH || Lifebar.getValue() <= 0) {
+  if (player.pos.y >= FALL_DEATH) {
     go("lose")
   }
 

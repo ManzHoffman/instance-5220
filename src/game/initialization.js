@@ -87,6 +87,8 @@ var IS_PLAYER_WALKING = 0;
 
 var PLATEFORM_ANGLE = -90;
 
+
+
 const LAYERS = {
 
     PLAYER: 100,
