@@ -1,8 +1,10 @@
 scene("game", (level) => {
 
-FogBar.create(0) 
-FogSystem.init()      
-FogSystem.animateTo(1, 120) 
+ FogBar.create(0)        // barre vide au début
+  FogSystem.init()        // instancie les sprites de brouillard
+
+  // brouillard qui monte progressivement
+  FogSystem.animateTo(1, 120)   // vers 1 sur 120s (ou 120 unités selon ton usage)
 
  WIND_AMB = play("windAmb", { loop: true,volume: 1 });
 

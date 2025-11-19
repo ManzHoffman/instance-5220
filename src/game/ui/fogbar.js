@@ -1,64 +1,59 @@
-// fogbar.js
+// fogBar.js
 
 window.FogBar = (() => {
   let barBg, barFg
-  let maxWidth = 300
-  let height = 18
-  let currentValue = 0  // 0 = pas de brouillard, 1 = plein écran
+  const maxWidth = 260
+  const barHeight = 14
+  let current = 0   // 0–1
 
-  function create(initialPercent = 0) {
-    destroyAll("fogbarUI")
+  function create(initial = 0) {
+    destroyAll("fogBarUI")
 
     const x = 40
     const y = 40
 
     barBg = add([
-      rect(maxWidth, height, { radius: 8 }),
+      rect(maxWidth, barHeight, { radius: 8 }),
       pos(x, y),
-      color(10, 15, 25),
-      z(200),
+      color(20, 20, 30),
+      opacity(0.8),
+      z(900),
       fixed(),
-      opacity(0.7),
-      "fogbarUI",
+      "fogBarUI",
     ])
 
     barFg = add([
-      rect(maxWidth * initialPercent, height, { radius: 6 }),
+      rect(maxWidth * initial, barHeight, { radius: 6 }),
       pos(x, y),
-      color(180, 200, 220), // gris-bleu brumeux
-      z(201),
+      color(180, 220, 255),
+      opacity(0.95),
+      z(901),
       fixed(),
-      opacity(0.9),
-      "fogbarUI",
+      "fogBarUI",
     ])
 
-    currentValue = initialPercent
+    set(initial)
   }
 
-  function update(percent) {
-    currentValue = Math.max(0, Math.min(1, percent))
+  function set(value) {
+    current = Math.max(0, Math.min(1, value))
     if (barFg) {
-      barFg.width = maxWidth * currentValue
+      barFg.width = maxWidth * current
     }
   }
 
-  function setValue(current, max) {
-    update(current / max)
-  }
-
-  function getValue() {
-    return currentValue
+  function get() {
+    return current
   }
 
   function hide() {
-    destroyAll("fogbarUI")
+    destroyAll("fogBarUI")
   }
 
   return {
     create,
-    update,
-    setValue,
-    getValue,
+    set,
+    get,
     hide,
   }
 })()
