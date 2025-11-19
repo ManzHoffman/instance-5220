@@ -1,7 +1,7 @@
 # 🦌 Instance 5220
 
 **Instance 5220** est une **expérience vidéoludique narrative en 2D**, développée en JavaScript avec **Kaplay.js** (ex-Kaboom).  
-Le joueur incarne **F**, un renne, qui s’éveille dans une toundra gelée, au milieu d’un monde fragmenté par la mémoire et le code.
+Le joueur incarne **Fennir**, un renne, qui s’éveille dans une toundra gelée, sans aucun souvenir suite à une chute. il se retrouve au milieu d’un monde parsemé de fragements de mémoire qu'il va devoir récupéerer.
 
 À travers un univers glitché et une narration minimale, le joueur explore un territoire onirique à la recherche de **fragments de mémoire**.  
 Ces indices, combinés, ouvrent un **pont laser** vers une porte verrouillée : la clé du passé de F… ou de son effacement.
