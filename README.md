@@ -90,7 +90,6 @@ Prompts essentiels :
 
 - « Peux-tu m’aider à créer une animation glitch pour Kaplay ? »
 - « Crée un inventaire en grille cliquable avec Kaplay.js »
-- « Écris une narration autour d’un renne nommé F, lié à un code F27 »
 - « Rédige une base de README conforme aux exigences du cours d’Isaac Pante »
 
 ⚠️ Aucun assets (son, image, sprite) n'a été généré par IA.
