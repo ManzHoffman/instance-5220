@@ -9,7 +9,7 @@ Ces indices, combinés, ouvrent un **pont laser** vers une porte verrouillée : 
 Le jeu mêle **ambiance nordique**, **effets VHS/pixel glitch**, **interfaces diegétiques** et **puzzles environnementaux** pour une courte expérience introspective.
 
 ---
-## Code
+## Code non utilisé ou commenté
 
 Ce projet est le fruit de multiples essais, certaines idées ont été testées puis modifées ou abandonnées. Par conséquent, il y a de nombreux commentaires dans le code du jeu ainsi que des fichiers inutilisés au sein du repository. La majorité d'entre-eux se trouvent dans le dossier unused, mais il est possible que certaines fonctions non utilisées soient présentes dans le code.
 
