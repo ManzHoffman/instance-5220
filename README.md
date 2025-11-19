@@ -11,7 +11,7 @@ Le jeu mêle **ambiance nordique**, **effets VHS/pixel glitch**, **interfaces di
 ---
 ## Code
 
-Ce projet est le fruit de multiples essais, certaines idées ont été testées puis modifées ou abandonnées. Par conséquent, il y a de nombreux commentaires dans le code du jeu ainsi que des fichiers inutilisés. La majorité d'entre-eux se trouvent dans le dossier unused, mais il est possible que certaines fonctions non utilisées soient présentes dans le code.
+Ce projet est le fruit de multiples essais, certaines idées ont été testées puis modifées ou abandonnées. Par conséquent, il y a de nombreux commentaires dans le code du jeu ainsi que des fichiers inutilisés au sein du repository. La majorité d'entre-eux se trouvent dans le dossier unused, mais il est possible que certaines fonctions non utilisées soient présentes dans le code.
 
 ## Projet de cours
 
