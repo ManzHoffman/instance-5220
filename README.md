@@ -21,7 +21,7 @@ Ce projet a été réalisé dans le cadre du cours :
 - **Développement de jeu vidéo 2D**
 - Thème : Mystères - Intelligences
 - Professeur : Isaac Pante
-- Université de Lausanne, [UNIL-DH](https://www.unil.ch/dh/home.html)  
+- Université de Lausanne, [UNIL-DH](https://www.unil.ch/unil/fr/home.html)  
 - [Voir la description complète du cours](https://gist.github.com/ipante/b75552f7430588fa790b712e5639ce6e)
 
 ---
