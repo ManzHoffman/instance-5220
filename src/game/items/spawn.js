@@ -1,9 +1,74 @@
-function spawnElements() {
+function spawnElements(revealIceBlocks = false, spawnLastFrag = false) {
 
   const groundWidth = 7110
   const repeatCount = 4
 
+  if (spawnLastFrag) {
+    const LAST_FRAGMENT_SPOTS = [
+      vec2(4000, 200),
+      vec2(3500, 120),
+      vec2(3000, 110),
+      vec2(5200, 100),
+      vec2(4000, 0),
+      vec2(3500, -120),
+      vec2(3000, 10),
+      vec2(5200, 20),
+    ]
 
+    spawnWanderingMemoryFragment(
+      LAST_FRAGMENT_SPOTS, 
+      {
+        message: "En dernier, une lettre identique à la première.",
+        codePiece: "T",
+      },
+      0.6,      
+      1       
+    )
+
+return
+
+  }
+
+
+
+
+
+
+   if (revealIceBlocks) {
+  add([
+    sprite("iceBlock"),
+    pos(1600, 200),
+    area(),
+    scale(0.5),
+    body({ isStatic: true }),
+    area(),
+    z(100),
+
+  ])
+
+  add([
+    sprite("iceBlock"),
+    pos(1900, 350),
+    area(),
+    scale(0.5),
+    body({ isStatic: true }),
+    area(),
+    z(100),
+
+  ])
+
+  add([
+    sprite("iceBlock"),
+    pos(4500, -200),
+    area(),
+    scale(0.5),
+    body({ isStatic: true }),
+    area(),
+    z(100),
+
+  ])
+  return
+}
   // GENERATING SNOW GROUND
   for (let i = 0; i < repeatCount; i++) {
     add([
@@ -119,6 +184,27 @@ function spawnElements() {
 
   ])
 
+    add([
+    sprite("iceBlock"),
+    pos(2400, -100),
+    area(),
+    scale(0.5),
+    body({ isStatic: true }),
+    area(),
+    z(100),
+
+  ])
+  add([
+    sprite("iceBlock"),
+    pos(3500, -100),
+    area(),
+    scale(0.5),
+    body({ isStatic: true }),
+    area(),
+    z(100),
+
+  ])
+
   
 // OIL
 
@@ -133,6 +219,8 @@ function spawnElements() {
     "fuel"
   ])
 // OIL BLock
+
+
   add([
     sprite("iceBlock"),
     pos(1500, -140),
@@ -183,58 +271,8 @@ function spawnElements() {
   ])
 //	side_connector_mechanism:"./src/game/assets/elements/trapdoor/parts/side_connector_mechanism.png",
 	//dark_wood_long:"./src/game/assets/elements/trapdoor/parts/dark_wood_long.png",
-  
-  add([
-    sprite("iceBlock"),
-    pos(1600, 200),
-    area(),
-    scale(0.5),
-    body({ isStatic: true }),
-    area(),
-    z(100),
 
-  ])
-
-  add([
-    sprite("iceBlock"),
-    pos(1900, 350),
-    area(),
-    scale(0.5),
-    body({ isStatic: true }),
-    area(),
-    z(100),
-
-  ])
-  add([
-    sprite("iceBlock"),
-    pos(2400, -100),
-    area(),
-    scale(0.5),
-    body({ isStatic: true }),
-    area(),
-    z(100),
-
-  ])
-  add([
-    sprite("iceBlock"),
-    pos(3500, -100),
-    area(),
-    scale(0.5),
-    body({ isStatic: true }),
-    area(),
-    z(100),
-
-  ])
-  add([
-    sprite("iceBlock"),
-    pos(4500, -200),
-    area(),
-    scale(0.5),
-    body({ isStatic: true }),
-    area(),
-    z(100),
-
-  ])
+ 
 
 
 
@@ -507,24 +545,22 @@ spawnSpikes(2600, 450, 0.7)
 spawnSpikes(2900, 420, 0.8)
 */
 
-  spawnMemoryFragment(1500, 370, {
-    message: "« Je me souviens maintenant… Un mot gravé dans la neige qui commençait par la lettre N.»",
-    codePiece: "N"
+  spawnMemoryFragment(2140, -100, {
+    message: "« Je me souviens maintenant… Un mot gravé dans la neige qui commençait par la lettre T.»",
+    codePiece: "T"
   })
 
-  spawnMemoryFragment(3400, 250, {
-    message: "Une orientation, un cercle, une deuxième lettre ronde !",
-    codePiece: "O"
+  spawnMemoryFragment(3700, 200, {
+    message: "« La deuxième lettre est une voyelle fréquente. Je reviens si souvent qu’on dit de moi que je suis la plus utilisée de toute la langue.»",
+    codePiece: "E"
   })
 
   spawnMemoryFragment(4560, -300, {
-    message: "Trois pierres, alignées comme des repères. Elles pointaient toutes vers une même direction. R… comme route ?",
-    codePiece: "R"
+    message: "La troisième lettre s'entend quand le silence se brise, elle siffle comme le vent dans la nuit, elle glisse au début du serpent, et elle s’échappe quand on demande le calme.",
+    codePiece: "S"
   })
-  spawnMemoryFragment(4800, -300, {
-    message: "Et puis le dernier écho… un son déformé : La lettre D… comme départ… ou dernier adieu ?",
-    codePiece: "R"
-  })
+  
+
 
   const npcFriend = add([
     sprite("friendIdle"),

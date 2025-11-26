@@ -1,6 +1,14 @@
 window.Inventory = (() => {
   let items = []
   let isOpen = false
+  const L = window.LAYERS || {
+    UI_1: 1800, //300
+    UI_2: 1801, // 301
+    UI_3: 1802, // 302
+    UI_4: 1803, // 303
+        UI_5: 1803, // 304
+            UI_6: 1803, // 305
+  }
 
   function addToInventory({ name, icon, description, scale,type }) {
     console.log(description)
@@ -10,10 +18,10 @@ window.Inventory = (() => {
    
 
       showNotification(`Objet ajouté à l'inventaire`,3)
-
+/*
       if (!CAN_OPEN_INVENTORY) {
         CAN_OPEN_INVENTORY = true; 
-      }
+      }*/
      
     }
   }
@@ -37,7 +45,7 @@ function showInventoryGrid() {
     rect(width(), height()),
     color(0, 0, 0),
     opacity(0.8),
-    z(300),
+    z(L.UI_1),
     fixed(),
     "invUI"
   ])
@@ -47,7 +55,7 @@ function showInventoryGrid() {
     pos(origin),
     color(30, 30, 40),
     opacity(0.95),
-    z(301),
+    z(L.UI_2),
     fixed(),
     "invUI"
   ])
@@ -60,7 +68,7 @@ function showInventoryGrid() {
   }),
   pos(origin.x + 20, origin.y + modalHeight + 10), 
   color(WHITE),
-  z(305),
+  z(L.UI_6),
   fixed(),
   "invUI",
 ])
@@ -77,7 +85,7 @@ function showInventoryGrid() {
         pos(slotX, slotY),
         color(60, 60, 80),
         opacity(0.4),
-        z(302),
+        z(L.UI_3),
         fixed(),
         "invUI"
       ])
@@ -97,7 +105,7 @@ items.forEach((item, i) => {
     anchor("center"),
     scale(item.scale),
     area(),
-    z(303),
+    z(L.UI_4),
     fixed(),
     "invUI",
     { item },
@@ -112,7 +120,7 @@ icon.onHover(() => {
       pos(slotX, slotY),
       color(255, 255, 255),
       opacity(0.1),
-      z(304),
+      z(L.UI_5),
       fixed(),
       "invUI"
     ])
@@ -160,13 +168,16 @@ icon.onHoverEnd(() => {
       
     }
   }
-
+function count(type) {
+  return items.filter(i => i.type === type).length
+}
 
   return {
     add: addToInventory,
     show: showInventoryGrid,
     clear: clearInventory,
     list: list,
-    has: (type) => items.some(i => i.type === type)
+    has: (type) => items.some(i => i.type === type),
+    count:count
   }
 })()

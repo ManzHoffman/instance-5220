@@ -3,14 +3,13 @@ scene("game", (level) => {
  FogBar.create(0)        // barre vide au début
   FogSystem.init()        // instancie les sprites de brouillard
 
+
+FogSystem.reset();
+  
  WIND_AMB = play("windAmb", { loop: true,volume: 1 });
 
 
-if (!LEVEL_TESTING  ) 
-{
 
-     IS_CINEMATIC_MODE_ON = true;
-}
 
 
 
@@ -70,10 +69,10 @@ add([
 
 onKeyPress(controls.openInventory, () => {
 
-  if (CAN_OPEN_INVENTORY) {
+
 
     Inventory.show()
-  }
+  
 })
 
 onKeyPress(controls.help, () => {

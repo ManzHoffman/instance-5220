@@ -74,7 +74,6 @@ player.onUpdate(() => {
 
 
 
-
   camPos(vec2(player.pos.x, fixedCamY))
 
 

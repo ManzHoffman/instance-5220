@@ -18,12 +18,13 @@ const COLOR_BLACK = '#000000';
 
 // STATE
 let IS_GAME_PAUSED = false;
-let CAN_OPEN_INVENTORY = false;
-let IS_FIRST_CIN_OVER = false;
+//let CAN_OPEN_INVENTORY = true;
+//let IS_FIRST_CIN_OVER = false;
 let IS_FOG_ACTIVATED = false;
 
-// DAMAGE
-const SPIKE_DAMAGE = 0.1;
+let IS_LAST_FR_ACTIVATED = false;
+
+
 
 // ITEMS
 const ITEM_KEY_DOOR_01 = "Key01";
@@ -64,11 +65,7 @@ const ANIM_SNOWBALL = "fly";
 const ANIM_BASIC_WEAPON_P = "shot";
 
 
-// GLOBAL VARIABLES THAT WILL BE GET FROM LOCAL STORAGE
-var PLAYER_SHOT_FORCE = 1
-var P_SHOT_FREQUENCY = 400;
-
-var MUSIC_VOLUME = 0.2;
+const MUSIC_VOLUME = 0.2;
 var WALK_NOISE = "";
  var WIND_AMB ="";
 

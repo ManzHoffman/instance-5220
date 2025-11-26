@@ -98,7 +98,6 @@ function clearSlow(duration = 10) {
     }
   )
 }
-  // FogSystem.animateTo(1, 120) → on garde la même interface
   function animateTo(target, duration) {
     target = clamp01(target)
 
@@ -119,7 +118,23 @@ function clearSlow(duration = 10) {
       }
     )
   }
+function reset() {
+  // Cancel tween if any
+  if (fogTween && typeof fogTween.cancel === "function") {
+    fogTween.cancel()
+    fogTween = null
+  }
 
+  // Reset fog value
+  fogAmount = 0
+  updateBar()
+
+  // Remove existing fog sprites so `init()` can recreate them
+  destroyAll("fogLayerPiece")
+
+  // Allow reinitialization
+  initialized = false
+}
   function reduceFog(amount = 0.1) {
     // on réduit la brume en direct
     fogAmount = clamp01(fogAmount - amount)
@@ -150,7 +165,8 @@ function clearSlow(duration = 10) {
     animateTo,
     get,
     reduceFog,
-    clearSlow,   
+    clearSlow,
+    reset,   
 
   }
 })()

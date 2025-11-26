@@ -34,32 +34,33 @@ jump: "Utilise la barre espace pour sauter",
 
 };*/
 const lines = [
-  "[Réactivation en cours . . .]",
+  "[Activation en cours . . .]",
   "[Sujet : Renne nommé Fenrir]",
-  "[Vous avez chuté violemment dans la neige]",
-  "[Votre mémoire est fracturée en 3 fragments]",
+  "[Vous n'avez plus aucun souvenir]",
+  "[Votre mémoire est fracturée en 4 fragments]",
   "[Ces fragments sont dispersés dans votre environnement]",
   "[Retrouvez-les pour comprendre ce qui vous est arrivé]",
   "[Chargement du monde . . .]",
 ];
 
-    const end_lines = [
-    "[Reconstruction Complete]",
-    "[Subject F27 - Memory Index: 100%]",
-    "[Emotive Trace: PRESERVED]",
-    "[> Terminating simulation...]",
-  ];
-
+const end_lines = [
+  "[RAPPORT DU LABORATOIRE]",
+  "[Le test — Instance n°5220 — s'est terminé avec succès]",
+  "[Le sujet FENRIR démontre une progression cognitive stupéfiante]",
+  "[Il a réussi à s'extraire par ses propres moyens]",
+  "[> Fin d'exécution du programme]",
+];
   // End  lines
 
-const SECRET_CODE = "NORD";
+const SECRET_CODE = "TEST";
   const NOTIF_ACTIONS = {
   key_missing: "Une clé est requise !",
+  fragments:"Les 4 fragments sont requis",
 };
 
 function getRandomFreyaThought()
 {
-  const thoughts = ["Je suis là ! Rapelles-toi !", "Ton esprit est emmbrumé ! Laisse moi t'aider.", "Regarde ! Le brouillard s'estompe."]
+  const thoughts = ["Ne crais rien, je chasse cette brume.", "Ton esprit est emmbrumé ! Laisse moi t'aider.", "Regarde ! Le brouillard s'estompe."]
   const n = Math.floor(Math.random() * 3) ;
 
   return thoughts[n];
