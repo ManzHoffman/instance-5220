@@ -3,9 +3,6 @@ scene("game", (level) => {
  FogBar.create(0)        // barre vide au début
   FogSystem.init()        // instancie les sprites de brouillard
 
-  // brouillard qui monte progressivement
-  FogSystem.animateTo(1, 120)   // vers 1 sur 120s (ou 120 unités selon ton usage)
-
  WIND_AMB = play("windAmb", { loop: true,volume: 1 });
 
 
@@ -51,20 +48,10 @@ add([
 
   
 
-/*
-  add([
-    sprite("ground"),
-    pos(0,350),dd
-  
-  ])
-
-*/
-
- 
 
 
 
-
+  addHelpButton()  
 
   spawnElements()
 
@@ -75,28 +62,6 @@ add([
   setupCollisions(player)
 
 
-
-playDeerThoughts([
-    { text: "Je ne sais plus ou je suis.", duration: 3},
-    //{ text: "Je marche. C’est tout ce que je sais faire.", duration: 4 },
-    { text: "Le ciel est différent.", duration: 2 },
-    { text: "Je ne me souviens de rien.", duration: 2 },
-    { text: "Mais quelque chose... m’attend.", duration: 3 },
-    { text: "Alors je continue.", duration: 2 },
-  ], () => {
-
-    IS_CINEMATIC_MODE_ON = false;
-    
-
-  
-
-  
-    console.log("All thoughts finished!")
-    showMemoryModal(getControlsDescription(), 4)
-
-
-
-  })
 
 
  

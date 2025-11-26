@@ -1,13 +1,14 @@
 kaplay({
     width: 1800,
     height: 1024,
+    scale:0.8,
     //font: "sans-serif",
     //canvas: document.querySelector("#mycanvas"),
     //background: [ 0, 0, 10, ],
 })
 
-// INITIALIZING CONST GLOBAL VARIABLES
-const LEVEL_TESTING = false;
+// dZING CONST GLOBAL VARIABLES
+const LEVEL_TESTING = true;
 
 
 // COLORS
@@ -18,7 +19,8 @@ const COLOR_BLACK = '#000000';
 // STATE
 let IS_GAME_PAUSED = false;
 let CAN_OPEN_INVENTORY = false;
-let HAS_GAME_BEGIN = false;
+let IS_FIRST_CIN_OVER = false;
+let IS_FOG_ACTIVATED = false;
 
 // DAMAGE
 const SPIKE_DAMAGE = 0.1;
@@ -86,6 +88,9 @@ var glitchCanvas = null;
 var IS_PLAYER_WALKING = 0;
 
 var PLATEFORM_ANGLE = -90;
+
+
+
 
 
 

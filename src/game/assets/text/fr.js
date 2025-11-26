@@ -7,9 +7,15 @@ const menu = {
 
 const loose = {
 title: "Appuyer sur ESPACE pour continuer",
+text:"[Votre mémoire s'en est allée...]",
 
 };
 
+const UI = {
+help: "ℹ Appuyez sur H pour obtenir de l'aide",
+
+
+};
   const CONTROLS = [
     { action: "Se déplacer à gauche", key: "A" },
     { action: "Se déplacer à droite", key: "D" },
@@ -50,3 +56,12 @@ const SECRET_CODE = "NORD";
   const NOTIF_ACTIONS = {
   key_missing: "Une clé est requise !",
 };
+
+function getRandomFreyaThought()
+{
+  const thoughts = ["Je suis là ! Rapelles-toi !", "Ton esprit est emmbrumé ! Laisse moi t'aider.", "Regarde ! Le brouillard s'estompe."]
+  const n = Math.floor(Math.random() * 3) ;
+
+  return thoughts[n];
+
+}

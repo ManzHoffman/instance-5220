@@ -32,7 +32,7 @@ function showInventoryGrid() {
   const modalHeight = rows * (cellSize + spacing) - spacing + padding * 2
 
   const origin = center().sub(vec2(modalWidth / 2, modalHeight / 2))
-/*
+
   const overlay = add([
     rect(width(), height()),
     color(0, 0, 0),
@@ -50,7 +50,7 @@ function showInventoryGrid() {
     z(301),
     fixed(),
     "invUI"
-  ])*/
+  ])
   const descriptionText = add([
   text("", {
     size: 16,

@@ -48,6 +48,7 @@ scene("lose", () => {
 
       reindeerDie.play(ANIM_DIE);
 
+    addText(loose.text, 44, COLOR_WHITE, "ussr", "center", width() / 2, height() / 2 -100 );
 
 // 3 seconds until explosion! Runnn!
 wait(1, () => {

@@ -5,6 +5,8 @@ function setupCollisions(player) {
     if (!frag.activated) {
       frag.activated = true
 
+
+
       //showMemoryModal("Fragement de mémoire...\n\n" + frag.message, 5)
       Inventory.add({
         name: "Fragment de mémoire",
@@ -60,25 +62,88 @@ function setupCollisions(player) {
 
 
   })
+  player.onCollide("fogTriggerOn", () => {
+
+    if(!IS_FOG_ACTIVATED)
+    {
+      
+    FogBar.create(0)        // barre vide au début
+    FogSystem.init()        // instancie les sprites de brouillard
+
+    // brouillard qui monte progressivement
+    FogSystem.animateTo(1, 40)   // vers 1 sur 120s (ou 120 unités selon ton usage)
+
+    IS_FOG_ACTIVATED = true;
+    }
+
+
+  })
+
+  player.onCollide("fogTriggerOff", () => {
+
+    if(IS_FOG_ACTIVATED)
+    {
+        playDeerThoughts([
+        { text: getRandomFreyaThought(), duration: 2 },
+
+      ])
+
+      FogSystem.clearSlow(8)   // le brouillard se dissipe sur 8 secondes
+
+
+
+    IS_FOG_ACTIVATED = false;
+    }
+
+    
+  })
+
+
+
+  player.onCollide("dialogTriggerFeyra", (t) => {
+    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON || IS_FIRST_CIN_OVER || LEVEL_TESTING) return;
+
+    IS_CINEMATIC_MODE_ON = true;
+
+ 
+      playDeerThoughts([
+        { text: "Freya : Salut Fenrir, Je m'apelle Freya", duration: 2 },
+        { text: "Freya : Je suis là pour t'aider à retrouver la mémoire !", duration: 2 },
+        { text: "Freya : Chaque fragement récupéré contient un indice pour ouvrir un portail.", duration: 4 },
+        { text: "Freya : Consulte ton inventaire en appuyant sur i pour les consulter.", duration: 4 },
+        { text: "Freya : Fais bien attention au brouillard un peu plus loin !", duration: 3 },
+        { text: "Freya : La barre en haut à gauche t'indique sa force.", duration: 3 },
+        { text: "Freya : S'il devient trop épais reviens me voir et je t'aiderai", duration: 3 },
+      ], () => {
+
+        IS_CINEMATIC_MODE_ON = false;
+        IS_FIRST_CIN_OVER = true;
+
+
+
+        console.log("All thoughts finished!")
+        //showMemoryModal(getControlsDescription(), 4)
+
+
+
+      })
+
+
+
+    
+
+
 /*
-  player.onCollide("hazard", (spike) => {
+      wait(2, () => {
+         
+   
+    
 
-    console.log("collision with spike")
-
-    blinkOnHit(player)
-    //showMemoryModal("Fragement de mémoire...\n\n" + frag.message, 5)
-    //Inventory.add({ name: "Fragement de mémoire...\n\n" + frag.message, icon: "fragment" })
-
-    //playerCode.push(frag.codePiece)
-
-    //frag.opacity = 0.1
-    Lifebar.update(Lifebar.getValue() - SPIKE_DAMAGE) // 75%
-
-    //play("fragment_get")
+      })*/
 
 
-  })*/
 
+  })
 
 
 

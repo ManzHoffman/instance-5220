@@ -9,7 +9,55 @@ function getControlsDescription() {
   return CONTROLS.map(c => `${c.action} : ${c.key}`).join("\n");
 }
 
+function addHelpButton() {
+  const size = 40
+  const margin = 20
 
+  const x = width() - size - margin
+  const y = margin
+
+  // Fond du bouton
+  const btn = add([
+    rect(size, size, { radius: 8 }),
+    pos(x, y),
+    color(50, 60, 80),
+    opacity(0.95),
+    z(LAYERS.UI_2),
+    fixed(),
+    area(),
+    "ui-help-button",
+  ])
+
+  // Icône "?" au centre
+  const label = add([
+    text("?", {
+      size: 24,
+      font: "ussr",
+    }),
+    pos(x + size / 2, y + size / 2),
+    anchor("center"),
+    color(rgb(220, 240, 255)),
+    opacity(1),
+    z(LAYERS.UI_3),
+    fixed(),
+    "ui-help-button",
+  ])
+
+  // Hover
+  btn.onHover(() => {
+    btn.color = color(70, 80, 110)
+  })
+
+  btn.onHoverEnd(() => {
+    btn.color = color(50, 60, 80)
+  })
+
+  // Clic : ouvrir l’aide (comme la touche help)
+  btn.onClick(() => {
+    if (IS_CINEMATIC_MODE_ON) return
+    showMemoryModal(getControlsDescription(), 4)
+  })
+}
 function showDeerThought(content, options = {}) {
     const boxWidth = options.width || 600
     const fontSize = options.size || 24
@@ -263,15 +311,9 @@ function showInventoryModal(content, duration = 4) {
   }
   
 
-
-function playDeerThoughts(thoughts, onComplete) {
-  let timeOffset = 0
-  const cancels = []        
-  let skipped = false
-
-
+function showHint(){
   const hint = add([
-    text("Appuyez sur ESPACE pour passer", { size: 18, font: "ussr" }),
+    text(UI.help, { size: 30, font: "ussr" }),
     pos(24, height() - 40),
     color(COLOR_BLACK),
     fixed(),
@@ -279,6 +321,16 @@ function playDeerThoughts(thoughts, onComplete) {
     z(999),
     "deerThoughtHint",
   ])
+
+
+
+}
+function playDeerThoughts(thoughts, onComplete) {
+  let timeOffset = 0
+  const cancels = []        
+  let skipped = false
+
+
 
 
   const cleanup = () => {
@@ -297,8 +349,8 @@ function playDeerThoughts(thoughts, onComplete) {
   }
 
 
-  const keySkip = onKeyPress("space", cleanup)
-  const clickSkip = onClick(cleanup) 
+
+  //const clickSkip = onClick(cleanup) 
 
   // Schedule all thoughts
   for (const t of thoughts) {
@@ -320,9 +372,9 @@ function playDeerThoughts(thoughts, onComplete) {
  
   const endW = wait(timeOffset, () => {
     if (skipped) return
-    destroy(hint)
-    keySkip.cancel()
-    clickSkip.cancel()
+    //destroy(hint)
+    //keySkip.cancel()
+    //clickSkip.cancel()
     onComplete && onComplete()
   })
   cancels.push(endW.cancel)

@@ -17,6 +17,33 @@ function spawnElements() {
   // TRIGGERS
 
 
+  const dialogTriggerFeyra = add([
+    area(),
+    pos(1000, 0),
+    rect(1, 1000),
+    opacity(0), // fully invisible
+    z(10),
+    "dialogTriggerFeyra"
+  ])
+
+  const fogTriggerOn = add([
+    area(),
+    pos(1500, -450),
+    rect(1, 1000),
+    opacity(0), // fully invisible
+    z(10),
+    "fogTriggerOn"
+  ])
+
+    const fogTriggerOff = add([
+    area(),
+    pos(1300, -450),
+    rect(1, 1000),
+    opacity(0), // fully invisible
+    z(10),
+    "fogTriggerOff"
+  ])
+
   const keyTrigger = add([
     area(),
     pos(4900, 480),
@@ -498,6 +525,19 @@ spawnSpikes(2900, 420, 0.8)
     message: "Et puis le dernier écho… un son déformé : La lettre D… comme départ… ou dernier adieu ?",
     codePiece: "R"
   })
+
+  const npcFriend = add([
+    sprite("friendIdle"),
+    pos(1200, 360),
+    scale(0.8),
+    //anchor("center"),
+    //body(),
+    area({ shape: new Rect(vec2(0), 100, 100) }), // custom collision box
+    anchor("center"),
+    z(LAYERS.PLAYER)
+
+  ])
+npcFriend.play(ANIM_IDLE);
 
 
 

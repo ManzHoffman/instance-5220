@@ -128,7 +128,7 @@ const ANIMATED_SPRITES =
 	//walrusDie:[{name: "walrusDie", src:"./src/game/assets/elements/enemy/walrus/walrusWhite/walrus_die.png",sliceX:5,sliceY:3,anim: ANIM_W_DIE,from:0,to:7,speed:3,loop:false}],
 	//basic_weapon_player:[{name: "basic_weapon_player", src:"./src/game/assets/elements/projectile/basic_weapon_player.png",sliceX:3,sliceY:2,anim: ANIM_BASIC_WEAPON_P,from:0,to:5,speed:3,loop:true}],
 	//seagullFly:[{name: "seagullFly", src:"./src/game/assets/elements/npc/seagull/seagull_fly.png",sliceX:4,sliceY:3,anim: ANIM_S_FLY,from:0,to:9,speed:5,loop:true}],
-	friendIdle:[{name: "friendIdle", src:"./src/game/assets/elements/npc/friend/friend_idle.png",sliceX:5,sliceY:4,anim: ANIM_IDLE,from:0,to:19,speed:FRAME_SPEED,loop:true}],
+	friendIdle:[{name: "", src:"./src/game/assets/elements/npc/friend/friend_idle.png",sliceX:5,sliceY:4,anim: ANIM_IDLE,from:0,to:19,speed:FRAME_SPEED,loop:true}],
 	fogPiece: [
 		{
 			name: "fogPiece",
