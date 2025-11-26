@@ -5,10 +5,10 @@ function spawnElements(revealIceBlocks = false, spawnLastFrag = false) {
 
   if (spawnLastFrag) {
     const LAST_FRAGMENT_SPOTS = [
-      vec2(4000, 200),
-      vec2(3500, 120),
-      vec2(3000, 110),
-      vec2(5200, 100),
+      vec2(4000, 180),
+      vec2(3500, 100),
+      vec2(3000, 90),
+      vec2(5200, 80),
       vec2(4000, 0),
       vec2(3500, -120),
       vec2(3000, 10),

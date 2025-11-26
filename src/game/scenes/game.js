@@ -5,7 +5,7 @@ scene("game", (level) => {
 
 
 FogSystem.reset();
-  
+Inventory.clear();
  WIND_AMB = play("windAmb", { loop: true,volume: 1 });
 
 

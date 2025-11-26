@@ -126,7 +126,7 @@ window.showNpcDialogue = function (config) {
 
     if (escHandler && escHandler.cancel) {
       escHandler.cancel()
-     // IS_CINEMATIC_MODE_ON = false;
+     
     }
 
 
@@ -191,6 +191,7 @@ visibleChoices.forEach((choice, i) => {
   })
   // ---- ESC key to close ----
   const escHandler = onKeyPress("escape", () => {
+    IS_CINEMATIC_MODE_ON = false;
     cleanup()
   })
 

@@ -5,13 +5,25 @@ window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRE
 
   let input = ""
 
+
+
   IS_CINEMATIC_MODE_ON = true;
 
+
+  
+  const L = window.LAYERS || {
+    UI_1: 1800,
+    UI_2: 1801,
+    UI_3: 1802,
+    UI_4: 1803,
+  }
+
+  
   const overlay = add([
     rect(width(), height()),
     color(0, 0, 0),
     opacity(0),
-    z(200),
+    z(L.UI_1),
     fixed(),
   ])
 
@@ -20,7 +32,7 @@ window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRE
     pos(center().x - boxWidth / 2, center().y - boxHeight / 2),
     color(20, 20, 30),
     opacity(0),
-    z(201),
+    z(L.UI_2),
     fixed(),
   ])
 
@@ -34,7 +46,7 @@ window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRE
     pos(center().x - boxWidth / 2 + 20, center().y - boxHeight / 2 + 30),
     color(WHITE),
     opacity(0),
-    z(202),
+    z(L.UI_3),
     fixed(),
   ])
 
@@ -43,7 +55,7 @@ window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRE
     pos(center().x - boxWidth / 2 + 20, center().y - boxHeight / 2 + 160),
     color(rgb(200, 255, 200)),
     opacity(0),
-    z(203),
+    z(L.UI_4),
     fixed(),
   ])
 
