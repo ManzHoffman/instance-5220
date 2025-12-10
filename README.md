@@ -27,7 +27,8 @@ Ce projet a été réalisé dans le cadre du cours :
 ---
 ## Aperçu
 
-![instance-5520](https://github.com/user-attachments/assets/4b5ffc82-8c3b-4f2e-82b0-0a30848fabca)
+<img width="1152" height="716" alt="image" src="https://github.com/user-attachments/assets/ce1c1aee-5342-488c-8233-9867004b68f8" />
+
 
 ## Installation & Lancement
 
