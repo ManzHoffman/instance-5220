@@ -5,8 +5,8 @@ window.showScreenGlitchFade = function (duration = 2.0) {
   if (glitchCanvas) return; 
 
   glitchSketch = new p5((p) => {
-    const canvasWidth = 1800;
-    const canvasHeight = 1024;
+    const canvasWidth = 1800*0.8;
+    const canvasHeight = 1024*0.8
 
 
     p.setup = () => {

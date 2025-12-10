@@ -1,106 +1,71 @@
-window.triggerScreenGlitch = function(duration = 1.2, fadeout = false) {
+// Pure Kaplay / Kaboom glitch, no p5
+window.triggerSimpleGlitch = function (duration = 0.4) {
 
-  const glitchLayer = add([
+  const originalCamPos   = camPos()
+  const originalCamScale = camScale()
+  const originalCamRot   = camRot()
+
+  const blocks = []
+
+  function spawnBlockGlitch() {
+    const w = rand(40, 160)
+    const h = rand(10, 60)
+    const x = rand(0, width() - w)
+    const y = rand(0, height() - h)
+
+    const b = add([
+      rect(w, h),
+      pos(x, y),
+      color(rand(120, 255), rand(120, 255), rand(120, 255)),
+      opacity(rand(0.1, 0.25)),
+      z(9999),
+      fixed(),
+      lifespan(rand(0.05, 0.15), { fade: 0.05 }),
+    ])
+
+    blocks.push(b)
+  }
+
+  // Main glitch loop: shake + a bit of zoom/rotation + spawn blocks
+  const glitchLoop = loop(0.03, () => {
+    // Camera shake + slight zoom + angle
+    camPos(originalCamPos.add(vec2(rand(-4, 4), rand(-4, 4))))
+    camScale(vec2(1 + rand(-0.03, 0.06)))
+    camRot(originalCamRot + rand(-0.06, 0.06))
+
+    // A few noisy rectangles
+    for (let i = 0; i < 4; i++) {
+      spawnBlockGlitch()
+    }
+  })
+
+  // Occasional color flash overlay
+  const flashOverlay = add([
     rect(width(), height()),
     pos(0, 0),
     color(255, 255, 255),
     opacity(0),
-    z(9999),
+    z(10000),
     fixed(),
   ])
 
-  const colorBars = []
-  const scanlines = []
-
-  const makeColorBar = () => {
-    const h = rand(4, 12)
-    const y = rand(0, height() - h)
-    const bar = add([
-      rect(width(), h),
-      pos(0, y),
-      color(rand(100, 255), rand(100, 255), rand(100, 255)), // RGB fuzz
-      opacity(rand(0.05, 0.2)),
-      z(10000),
-      fixed(),
-    ])
-    colorBars.push(bar)
-  }
-
-  const makeScanline = () => {
-    const h = 1
-    const y = rand(0, height() - h)
-    const line = add([
-      rect(width(), h),
-      pos(0, y),
-      color(255, 255, 255),
-      opacity(rand(0.02, 0.05)),
-      z(10001),
-      fixed(),
-    ])
-    scanlines.push(line)
-  }
-
-  const glitchOverlay = loop(0.05, () => {
-    glitchLayer.opacity = rand(0.01, 0.08)
-    for (let i = 0; i < 4; i++) makeColorBar()
-    for (let i = 0; i < 6; i++) makeScanline()
+  const flashLoop = loop(0.12, () => {
+    flashOverlay.color = rgb(rand(100, 255), rand(100, 255), rand(100, 255))
+    flashOverlay.opacity = rand(0.05, 0.18)
   })
 
-  const shake = loop(0.03, () => {
-    camPos(camPos().add(vec2(rand(-3, 3), rand(-3, 3))))
-  })
-
-
-  const flash = loop(rand(0.3, 0.5), () => {
-    glitchLayer.color = rgb(rand(100, 255), rand(100, 255), rand(100, 255))
-    glitchLayer.opacity = rand(0.05, 0.15)
-  })
-
-
-if(!fadeout){
+  // End of glitch
   wait(duration, () => {
-    destroy(glitchLayer)
-    glitchOverlay.cancel()
-    shake.cancel()
-    flash.cancel()
-    camPos(center())
-    colorBars.forEach(destroy)
-    scanlines.forEach(destroy)
+    glitchLoop.cancel()
+    flashLoop.cancel()
+
+    camPos(originalCamPos)
+    camScale(originalCamScale)
+    camRot(originalCamRot)
+
+    flashOverlay.opacity = 0
+    destroy(flashOverlay)
+
+    blocks.forEach(b => b && b.exists() && destroy(b))
   })
-
-}
-else
-{
-wait(duration, () => {
-  glitchOverlay.cancel()
-  shake.cancel()
-  flash.cancel()
-
-  // Fade out glitch overlay
-  tween(glitchLayer.opacity, 0, 0.4, (val) => glitchLayer.opacity = val)
-
-  // Then fade screen to black
-  wait(0.4, () => {
-    destroy(glitchLayer)
-    colorBars.forEach(destroy)
-    scanlines.forEach(destroy)
-    camPos(center())
-
-    const blackOverlay = add([
-      rect(width(), height()),
-      pos(0, 0),
-      color(0, 0, 0),
-      opacity(0),
-      z(10001),
-      fixed(),
-    ])
-
-    tween(blackOverlay.opacity, 1, 1, (val) => {
-      blackOverlay.opacity = val
-    })
-  })
-})
-
-}
-
 }
