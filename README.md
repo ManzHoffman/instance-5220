@@ -96,7 +96,7 @@ Prompts essentiels :
 ---
 
 ### Corrections 10.12.2025
-
+---
 Aspects techniques
 Taille de la fenêtre 
 Adaptation avec un scale (0.7) et diminution de la width (1800 → 1500)
