@@ -1,10 +1,10 @@
 # 🦌 Instance 5220
 
 **Instance 5220** est une **expérience vidéoludique narrative en 2D**, développée en JavaScript avec **Kaplay.js** (ex-Kaboom).  
-Le joueur incarne **Fennir**, un renne, qui s’éveille dans une toundra gelée, sans aucun souvenir suite à une chute. il se retrouve au milieu d’un monde parsemé de fragements de mémoire qu'il va devoir récupéerer.
+Le joueur incarne **Fennir**, un renne, qui s’éveille dans une toundra gelée, sans aucun souvenir. il se retrouve au milieu d’un monde parsemé de fragements de mémoire qu'il va devoir récupéerer.
 
 À travers un univers glitché et une narration minimale, le joueur explore un territoire onirique à la recherche de **fragments de mémoire**.  
-Ces indices, combinés, ouvrent un **pont laser** vers une porte verrouillée : la clé du passé de F… ou de son effacement.
+Ces indices, combinés, ouvrent un **pont laser** vers une porte verrouillée : la clé du passé de Fenrir.
 
 Le jeu mêle **ambiance nordique**, **effets VHS/pixel glitch**, **interfaces diegétiques** et **puzzles environnementaux** pour une courte expérience introspective.
 
@@ -27,7 +27,8 @@ Ce projet a été réalisé dans le cadre du cours :
 ---
 ## Aperçu
 
-![instance-5520](https://github.com/user-attachments/assets/4b5ffc82-8c3b-4f2e-82b0-0a30848fabca)
+<img width="1152" height="716" alt="image" src="https://github.com/user-attachments/assets/ce1c1aee-5342-488c-8233-9867004b68f8" />
+
 
 ## Installation & Lancement
 
@@ -94,3 +95,82 @@ Prompts essentiels :
 
 ⚠️ Aucun assets (son, image, sprite) n'a été généré par IA.
 ---
+
+# 🦌 Mise à Jour Majeure : Refonte Thématique et Optimisation du Gameplay
+
+Cette mise à jour apporte des changements fondamentaux, notamment l'alignement du gameplay sur la thématique du **souvenir** et des améliorations significatives de l'expérience utilisateur et de la durée de vie du jeu.
+
+---
+
+## ✨ Nouveautés et Améliorations Thématiques
+
+### 🧠 Le Brouillard du Souvenir (Refonte du Système de Santé)
+
+Le concept de "spikes" et de barre de vie a été jugé hors-sujet avec la thématique du souvenir et a été complètement remplacé.
+
+* ❌ **Éléments Retirés :** Les obstacles de type *Spikes* et la Barre de Vie classique.
+    ```javascript
+    /* Anciennes lignes commentées :
+    spawnSpikes(700, 450, 0.6)
+    ...
+    */
+    ```
+* ✅ **Nouveau Système : Brouillard Progressif**
+    * **Symbolisme :** Le brouillard représente l'**esprit brumeux** du renne cherchant sa mémoire.
+    * **Gameplay :** La Barre de Vie est remplacée par une **Barre d'Intensité du Brouillard**.
+    * **Mécanique :** Le brouillard augmente progressivement, servant de **limite de temps**. S'il est trop dense, le joueur échoue à retrouver les souvenirs.
+    * **Solution :** Interagir avec **Freya** permet de dissiper le brouillard (le ramener à 0) et de gagner du temps.
+
+### ⏳ Durée de Vie et Progression
+
+Le jeu, initialement trop court, a été étendu et complexifié.
+
+* **Objectif Étendu :** Le joueur doit désormais récupérer **4 Fragments de Souvenir** (au lieu de 1).
+* **Complexité :** Les 3 premiers fragments sont aisés ; le **4ème** est rapide, disparaît, et sa récupération est limitée par l'urgence du système de Brouillard.
+
+### 🤝 Solitude du Joueur et Guidance
+
+Un NPC a été ajouté pour enrichir l'expérience et guider les nouveaux joueurs.
+
+* **Ajout : Freya la Renne**
+    * **Rôle :** Dialogue avec Freya pour clarifier les **mécanismes de jeu** et les objectifs.
+* **Amélioration de l'Énigme :**
+    * L'énigme du portail a été simplifiée.
+    * Freya guide le joueur, expliquant que les indices se trouvent dans l'inventaire et que le **code est composé de 4 lettres**.
+* **Contexte Narratif :** Les écrans de début et de fin ont été étoffés pour fournir plus d'informations.
+
+---
+
+## ⚙️ Modifications Techniques et Interface
+
+### 🖥️ Taille de la Fenêtre
+
+Ajustements pour un meilleur rendu visuel et une meilleure expérience utilisateur.
+
+* **Adaptation :** Scale ($0.7$) et diminution de la largeur ($1800 \to 1500$).
+* **Configuration Kaplay :**
+    ```javascript
+    kaplay({
+        width: 1500,
+        height: 1024,
+        scale: 0.7,
+    })
+    ```
+
+### 🛑 Restrictions de l'Inventaire
+
+Empêche l'interaction de l'utilisateur pendant les séquences narratives importantes.
+
+* **Condition Ajoutée (dans `Inventory.js`) :** L'inventaire ne s'ouvre pas si le mode cinématique est actif.
+    ```javascript
+    function showInventoryGrid() {
+        if (isOpen || IS_CINEMATIC_MODE_ON) return
+        // ...
+    }
+    ```
+
+### 📝 Mise à Jour du Readme
+
+* Le lien vers le site de l'Unil non fonctionnel a été **corrigé**.
+* La description du jeu a été **adaptée** en cohérence avec tous les nouveaux éléments.
+* Ajout d'une section sur le code parfois non utilisé, présent dans le repository. 
