@@ -94,3 +94,79 @@ Prompts essentiels :
 
 ⚠️ Aucun assets (son, image, sprite) n'a été généré par IA.
 ---
+
+### Corrections 10.12.2025
+
+Aspects techniques
+Taille de la fenêtre 
+Adaptation avec un scale (0.7) et diminution de la width (1800 → 1500)
+
+kaplay({
+    width: 1500,
+    height: 1024,
+    scale:0.7,
+})
+
+
+
+L’inventaire s’ouvre lorsque le code prompt est affiché
+Inventory.js
+
+function showInventoryGrid() {
+  if (isOpen || IS_CINEMATIC_MODE_ON) return
+
+On ajoute une condition dans le fichier inventory.js qui permet d’interdire l’ouverture de l’inventaire si le mode cinématique est enclenché. La constante IS_CINEMATIC_MODE_ON est utilisée dans différente partie du jeu pour éviter que l’utilisateur interagisse avec certains composants lorsque des dialogues sont en cours par exemple.
+
+Readme Github
+
+Corrections
+Le lien vers le site de l’unil non fonctionnel a été corrigé. 
+La description du jeu a été adaptée en cohérence avec les nouveaux éléments du jeu.
+
+Solitude du joueur
+
+
+Ajout d’un NPC
+Un retour fait état du fait que le joueur se sent seul et laissé à lui-même avec très peu d’informations. Afin de remédier à cela,  un NPC à été ajouté. Il s’agit de Freya, une renne avec laquelle le joueur doit interagir. Le joueur peut poser des questions à Freya; les réponses données clarifient les mécanismes de jeu et permettent au joueur de mieux comprendre ce qu’il doit faire. 
+
+La thématique du souvenir
+
+
+La question des “spikes” et de la barre de vie
+Les spikes sont des troncs de bois aiguisés qui constituent un obstacle qui complique le déplacement du joueur. Lors d’un impact avec l’un de ces obstacles le joueur perd de la vie. La barre de vie quant à elle est un élément présent dans de nombreux jeux vidéo, dans ce cas-ci elle est intimement liée aux “spikes” car ce sont ces derniers qui peuvent la faire diminuer.
+
+
+  /*
+  spawnSpikes(700, 450, 0.6)
+
+
+  spawnSpikes(990, 420, 0.8)
+
+
+  spawnSpikes(1200, 450, 0.6)
+
+
+spawnSpikes(2600, 450, 0.7)
+
+
+
+
+spawnSpikes(2900, 420, 0.8)
+*/
+
+La présence de ces deux éléments n’étant pas très en raccord avec la thématique,  la décision a été prise de les retirer au profit d’un système de brouillard progressif. Cet élément est intéressant à plusieurs titres :
+
+En premier lieu dans sa dimension ludique car il donne un temps limité au joueur pour retrouver ses souvenirs avant que le brouillard ne rende la tâche impossible.Le fait de revenir vers Freya permet de ramener le niveau de brume à 0 progressivement. La barre de vie est donc remplacée par une barre qui affiche l’intensité du brouillard présent dans le jeu.
+
+Dans un deuxième temps, la symbolique du brouillard nous semble plus proche de la thématique du souvenir dans le sens ou le renne est désorienté et il cherche à retrouver la mémoire. Le brouillard représente donc en quelque sorte l’esprit brumeux du joueur qui est à la recherche de ses souvenirs. 
+
+Mieux expliquer l'énigme qui ouvre portail laser
+L’énigme a été simplifiée et mieux expliquée. Freya explique au joueur qu’il doit utiliser son inventaire pour trouver des indices sur l’énigme du portail, elle précise également que le code est composé de 4 lettres. 
+
+Plus d’informations sont données par les écrans de début et de fin
+
+
+Le jeu est trop court
+Le jeu se termine en moins de deux minutes ce qui constitue un temps très court. Pour remédier à cela, le joueur doit dorénavant récupérer 4 fragments. Les 3 premiers sont assez aisé à récupérer mais le 4ième s’avère un peu plus complexe à attraper. Il bouge rapidement et disparaît. L’ajout du brouillard limite le temps que le joueur peut passer dans la zone où sont présents les fragments ce qui complexifie l’avancement. 
+
+
