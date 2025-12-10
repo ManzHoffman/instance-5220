@@ -108,129 +108,146 @@ function setupCollisions(player) {
 
   player.onCollide("dialogTriggerFeyra", (t) => {
 
-    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON  ) return;
+    if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;
+ 
 
 
-    WALK_NOISE.stop();
+console.log(Inventory.count(ITEM_FRAGMENT))
+
+    showNotification(NOTIF_ACTIONS.talk_freya, 2)
+
+
+
+    onKeyPress(controls.activate, () => {
+    // Distance check (adjust 50 to the distance you want)
+
+    const dist = player.pos.dist(t.pos)
 
     let hasThreeFrag = Inventory.count(ITEM_FRAGMENT) == 3
     let hasFourFrag = Inventory.count(ITEM_FRAGMENT) == 4
+  
 
-    console.log(hasThreeFrag)
+    if (dist > 465 || IS_CINEMATIC_MODE_ON ) return   // ⛔ too far → do nothing
+
+
+      WALK_NOISE.stop();
     IS_CINEMATIC_MODE_ON = true
 
+      showNpcDialogue({
+        npcName: "Freya",
+        text: "Salut Fenrir, tu es perdu ?",
+        choices: [
+          {
+            label: "[Donner les 3 fragments]", condition: () => hasThreeFrag, onSelect: () => {
+              playDeerThoughts([
+                { text: "Freya : Bravo ! Tu as récupéré les 3 fragments !", duration: 2 },
+                { text: "Freya : J'ai conservé le 4ième fragment en sureté dans le brouillard.", duration: 4 },
+                { text: "Freya : Il est instable ! Et se déplace très rapidement", duration: 3 },
 
-    showNpcDialogue({
-      npcName: "Freya",
-      text: "Salut Fenrir, tu es perdu ?",
-      choices: [
-        {
-          label: "[Donner les 3 fragments]", condition: () => hasThreeFrag, onSelect: () => {
-            playDeerThoughts([
-              { text: "Freya : Bravo ! Tu as récupéré les 3 fragments !", duration: 2 },
-              { text: "Freya : J'ai conservé le 4ième fragment en sureté dans le brouillard.", duration: 4 },
-              { text: "Freya : Il est instable ! Et se déplace très rapidement", duration: 3 },
+              ], () => {
 
-            ], () => {
+                IS_CINEMATIC_MODE_ON = false;
 
-            IS_CINEMATIC_MODE_ON = false;
+                if (IS_LAST_FR_ACTIVATED) return
 
-            if (IS_LAST_FR_ACTIVATED) return
+                spawnElements(false, true)
 
-             spawnElements(false,true)
+                IS_LAST_FR_ACTIVATED = true;
 
-              IS_LAST_FR_ACTIVATED = true;
+              })
 
-            })
+            }
+          },
+          {
+            label: "Comment ouvrir le portail ?", condition: () => hasFourFrag, onSelect: () => {
+              playDeerThoughts([
+                { text: "Freya : A l'aide des 4 fragments tu peux dorénavant ouvrir le portail !", duration: 3 },
+                { text: "Freya : Ce portail est protégé par un code composé de 4 lettres.", duration: 4 },
+                { text: "Freya : Je te conseille de fouiller dans ton inventaire.", duration: 3 },
 
-          }
-        },
-         {
-          label: "Comment ouvrir le portail ?", condition: () => hasFourFrag, onSelect: () => {
-            playDeerThoughts([
-              { text: "Freya : A l'aide des 4 fragments tu peux dorénavant ouvrir le portail !", duration: 3 },
-              { text: "Freya : Ce portail est protégé par un code composé de 4 lettres.", duration: 4 },
-              { text: "Freya : Je te conseille de fouiller dans ton inventaire.", duration: 3 },
+              ], () => {
 
-            ], () => {
-
-              IS_CINEMATIC_MODE_ON = false;
-
-
-
-            })
-
-          }
-        },
-        {
-          label: "Je ne me rapelle plus de rien.", onSelect: () => {
-
-
-            playDeerThoughts([
-              { text: "Freya : Je peux t'aider à retrouver la mémoire !", duration: 2 },
-              { text: "Freya : 3 fragments de ta mémoire sont disperés dans la neige", duration: 4 },
-              { text: "Freya : Dès que tu les auras en ta possession je t'aiderai à récupérer le 4ième.", duration: 4 },
-              { text: "Freya : Chaque fragement récupéré contient un indice pour ouvrir un portail.", duration: 4 },
-              { text: "Freya : Consulte ton inventaire en appuyant sur i pour les consulter.", duration: 4 },
-            ], () => {
-
-              IS_CINEMATIC_MODE_ON = false;
-
-
-              console.log("All thoughts finished!")
-              //showMemoryModal(getControlsDescription(), 4)
+                IS_CINEMATIC_MODE_ON = false;
 
 
 
-            })
+              })
+
+            }
+          },
+          {
+            label: "Je ne me rapelle plus de rien.", onSelect: () => {
+
+
+              playDeerThoughts([
+                { text: "Freya : Je peux t'aider à retrouver la mémoire !", duration: 2 },
+                { text: "Freya : 3 fragments de ta mémoire sont disperés dans la neige", duration: 4 },
+                { text: "Freya : Dès que tu les auras en ta possession je t'aiderai à récupérer le 4ième.", duration: 4 },
+                { text: "Freya : Chaque fragement récupéré contient un indice pour ouvrir un portail.", duration: 4 },
+                { text: "Freya : Consulte ton inventaire en appuyant sur i pour les consulter.", duration: 4 },
+              ], () => {
+
+                IS_CINEMATIC_MODE_ON = false;
+
+
+                console.log("All thoughts finished!")
+                //showMemoryModal(getControlsDescription(), 4)
+
+
+
+              })
 
 
 
 
-          }
-        },
-        {
-          label: "Quels sont les dangers ?", onSelect: () => {
+            }
+          },
+          {
+            label: "Quels sont les dangers ?", onSelect: () => {
 
 
-            playDeerThoughts([
-              { text: "Freya : Fais bien attention au brouillard un peu plus loin !", duration: 3 },
-              { text: "Freya : La barre en haut à gauche t'indique sa force.", duration: 3 },
-              { text: "Freya : S'il devient trop épais reviens vers moi.", duration: 3 },
-              { text: "Freya : Ne reste pas trop longtemps dans le brouillard !", duration: 3 },
-              { text: "Freya : Tu risques de perdre la mémoire définitivement !", duration: 3 },
-            ], () => {
+              playDeerThoughts([
+                { text: "Freya : Fais bien attention au brouillard un peu plus loin !", duration: 3 },
+                { text: "Freya : La barre en haut à gauche t'indique sa force.", duration: 3 },
+                { text: "Freya : S'il devient trop épais reviens vers moi.", duration: 3 },
+                { text: "Freya : Ne reste pas trop longtemps dans le brouillard !", duration: 3 },
+                { text: "Freya : Tu risques de perdre la mémoire définitivement !", duration: 3 },
+              ], () => {
 
-              IS_CINEMATIC_MODE_ON = false;
-
-
-            })
-
-          }
-        },
-        {
-          label: "Je suis perdu !", onSelect: () => {
+                IS_CINEMATIC_MODE_ON = false;
 
 
-            playDeerThoughts([
-              { text: "Freya : Chaque fragment récupéré te permet d'avancer !", duration: 3 },
-              { text: "Freya : Le chemin se dévoile au fur et à mesure.", duration: 3 },
+              })
 
-            ], () => {
-
-              IS_CINEMATIC_MODE_ON = false;
-
-
-            })
-
-          } 
-        },
-
-       // { label: "Rien, je me promène.", onSelect: () => { /* close only */ } },
+            }
+          },
+          {
+            label: "Je suis perdu !", onSelect: () => {
 
 
-      ],
+              playDeerThoughts([
+                { text: "Freya : Chaque fragment récupéré te permet d'avancer !", duration: 3 },
+                { text: "Freya : Le chemin se dévoile au fur et à mesure.", duration: 3 },
+
+              ], () => {
+
+                IS_CINEMATIC_MODE_ON = false;
+
+
+              })
+
+            }
+          },
+
+          // { label: "Rien, je me promène.", onSelect: () => { /* close only */ } },
+
+
+        ],
+      })
+
     })
+
+
 
 
 

@@ -56,6 +56,7 @@ const SECRET_CODE = "TEST";
   const NOTIF_ACTIONS = {
   key_missing: "Une clé est requise !",
   fragments:"Les 4 fragments sont requis",
+  talk_freya:"Appuie sur E pour intéragir",
 };
 
 function getRandomFreyaThought()
