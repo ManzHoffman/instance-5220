@@ -95,78 +95,80 @@ Prompts essentiels :
 ⚠️ Aucun assets (son, image, sprite) n'a été généré par IA.
 ---
 
-### Corrections 10.12.2025
+# 🦌 Mise à Jour Majeure : Refonte Thématique et Optimisation du Gameplay
+
+Cette mise à jour apporte des changements fondamentaux, notamment l'alignement du gameplay sur la thématique du **souvenir** et des améliorations significatives de l'expérience utilisateur et de la durée de vie du jeu.
+
 ---
-Aspects techniques
-Taille de la fenêtre 
-Adaptation avec un scale (0.7) et diminution de la width (1800 → 1500)
 
-kaplay({
-    width: 1500,
-    height: 1024,
-    scale:0.7,
-})
+## ✨ Nouveautés et Améliorations Thématiques
 
+### 🧠 Le Brouillard du Souvenir (Refonte du Système de Santé)
 
+Le concept de "spikes" et de barre de vie a été jugé hors-sujet avec la thématique du souvenir et a été complètement remplacé.
 
-L’inventaire s’ouvre lorsque le code prompt est affiché
-Inventory.js
+* ❌ **Éléments Retirés :** Les obstacles de type *Spikes* et la Barre de Vie classique.
+    ```javascript
+    /* Anciennes lignes commentées :
+    spawnSpikes(700, 450, 0.6)
+    ...
+    */
+    ```
+* ✅ **Nouveau Système : Brouillard Progressif**
+    * **Symbolisme :** Le brouillard représente l'**esprit brumeux** du renne cherchant sa mémoire.
+    * **Gameplay :** La Barre de Vie est remplacée par une **Barre d'Intensité du Brouillard**.
+    * **Mécanique :** Le brouillard augmente progressivement, servant de **limite de temps**. S'il est trop dense, le joueur échoue à retrouver les souvenirs.
+    * **Solution :** Interagir avec **Freya** permet de dissiper le brouillard (le ramener à 0) et de gagner du temps.
 
-function showInventoryGrid() {
-  if (isOpen || IS_CINEMATIC_MODE_ON) return
+### ⏳ Durée de Vie et Progression
 
-On ajoute une condition dans le fichier inventory.js qui permet d’interdire l’ouverture de l’inventaire si le mode cinématique est enclenché. La constante IS_CINEMATIC_MODE_ON est utilisée dans différente partie du jeu pour éviter que l’utilisateur interagisse avec certains composants lorsque des dialogues sont en cours par exemple.
+Le jeu, initialement trop court, a été étendu et complexifié.
 
-Readme Github
+* **Objectif Étendu :** Le joueur doit désormais récupérer **4 Fragments de Souvenir** (au lieu de 1).
+* **Complexité :** Les 3 premiers fragments sont aisés ; le **4ème** est rapide, disparaît, et sa récupération est limitée par l'urgence du système de Brouillard.
 
-Corrections
-Le lien vers le site de l’unil non fonctionnel a été corrigé. 
-La description du jeu a été adaptée en cohérence avec les nouveaux éléments du jeu.
+### 🤝 Solitude du Joueur et Guidance
 
-Solitude du joueur
+Un NPC a été ajouté pour enrichir l'expérience et guider les nouveaux joueurs.
 
+* **Ajout : Freya la Renne**
+    * **Rôle :** Dialogue avec Freya pour clarifier les **mécanismes de jeu** et les objectifs.
+* **Amélioration de l'Énigme :**
+    * L'énigme du portail a été simplifiée.
+    * Freya guide le joueur, expliquant que les indices se trouvent dans l'inventaire et que le **code est composé de 4 lettres**.
+* **Contexte Narratif :** Les écrans de début et de fin ont été étoffés pour fournir plus d'informations.
 
-Ajout d’un NPC
-Un retour fait état du fait que le joueur se sent seul et laissé à lui-même avec très peu d’informations. Afin de remédier à cela,  un NPC à été ajouté. Il s’agit de Freya, une renne avec laquelle le joueur doit interagir. Le joueur peut poser des questions à Freya; les réponses données clarifient les mécanismes de jeu et permettent au joueur de mieux comprendre ce qu’il doit faire. 
+---
 
-La thématique du souvenir
+## ⚙️ Modifications Techniques et Interface
 
+### 🖥️ Taille de la Fenêtre
 
-La question des “spikes” et de la barre de vie
-Les spikes sont des troncs de bois aiguisés qui constituent un obstacle qui complique le déplacement du joueur. Lors d’un impact avec l’un de ces obstacles le joueur perd de la vie. La barre de vie quant à elle est un élément présent dans de nombreux jeux vidéo, dans ce cas-ci elle est intimement liée aux “spikes” car ce sont ces derniers qui peuvent la faire diminuer.
+Ajustements pour un meilleur rendu visuel et une meilleure expérience utilisateur.
 
+* **Adaptation :** Scale ($0.7$) et diminution de la largeur ($1800 \to 1500$).
+* **Configuration Kaplay :**
+    ```javascript
+    kaplay({
+        width: 1500,
+        height: 1024,
+        scale: 0.7,
+    })
+    ```
 
-  /*
-  spawnSpikes(700, 450, 0.6)
+### 🛑 Restrictions de l'Inventaire
 
+Empêche l'interaction de l'utilisateur pendant les séquences narratives importantes.
 
-  spawnSpikes(990, 420, 0.8)
+* **Condition Ajoutée (dans `Inventory.js`) :** L'inventaire ne s'ouvre pas si le mode cinématique est actif.
+    ```javascript
+    function showInventoryGrid() {
+        if (isOpen || IS_CINEMATIC_MODE_ON) return
+        // ...
+    }
+    ```
 
+### 📝 Mise à Jour du Readme
 
-  spawnSpikes(1200, 450, 0.6)
-
-
-spawnSpikes(2600, 450, 0.7)
-
-
-
-
-spawnSpikes(2900, 420, 0.8)
-*/
-
-La présence de ces deux éléments n’étant pas très en raccord avec la thématique,  la décision a été prise de les retirer au profit d’un système de brouillard progressif. Cet élément est intéressant à plusieurs titres :
-
-En premier lieu dans sa dimension ludique car il donne un temps limité au joueur pour retrouver ses souvenirs avant que le brouillard ne rende la tâche impossible.Le fait de revenir vers Freya permet de ramener le niveau de brume à 0 progressivement. La barre de vie est donc remplacée par une barre qui affiche l’intensité du brouillard présent dans le jeu.
-
-Dans un deuxième temps, la symbolique du brouillard nous semble plus proche de la thématique du souvenir dans le sens ou le renne est désorienté et il cherche à retrouver la mémoire. Le brouillard représente donc en quelque sorte l’esprit brumeux du joueur qui est à la recherche de ses souvenirs. 
-
-Mieux expliquer l'énigme qui ouvre portail laser
-L’énigme a été simplifiée et mieux expliquée. Freya explique au joueur qu’il doit utiliser son inventaire pour trouver des indices sur l’énigme du portail, elle précise également que le code est composé de 4 lettres. 
-
-Plus d’informations sont données par les écrans de début et de fin
-
-
-Le jeu est trop court
-Le jeu se termine en moins de deux minutes ce qui constitue un temps très court. Pour remédier à cela, le joueur doit dorénavant récupérer 4 fragments. Les 3 premiers sont assez aisé à récupérer mais le 4ième s’avère un peu plus complexe à attraper. Il bouge rapidement et disparaît. L’ajout du brouillard limite le temps que le joueur peut passer dans la zone où sont présents les fragments ce qui complexifie l’avancement. 
-
-
+* Le lien vers le site de l'Unil non fonctionnel a été **corrigé**.
+* La description du jeu a été **adaptée** en cohérence avec tous les nouveaux éléments.
