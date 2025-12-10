@@ -173,3 +173,4 @@ Empêche l'interaction de l'utilisateur pendant les séquences narratives import
 
 * Le lien vers le site de l'Unil non fonctionnel a été **corrigé**.
 * La description du jeu a été **adaptée** en cohérence avec tous les nouveaux éléments.
+* Ajout d'une section sur le code parfois non utilisé, présent dans le repository. 
