@@ -13,7 +13,7 @@ Le jeu mêle **ambiance nordique**, **effets VHS/pixel glitch**, **interfaces di
 
 Ce projet est le fruit de multiples essais, certaines idées ont été testées puis modifées ou abandonnées. Par exemple, suite à plusieurs retours critiques l'idée d'avoie une "barre de vie" s'est avérée être peu utile et ne pas apporter de plus value au jeu. Il en va de même pour les "spikes", à savoir des bout de bois qui sortaient de la glace et qui constituaeint un obstacle pour le joueur. Ces derniers fonctionnaient bien mais n'avaient pas vraiment de rapport avec la thématique du jeu.
 
-Par conséquent, il y a de nombreux commentaires dans le code du jeu ainsi que des fichiers inutilisés au sein du repository. La majorité d'entre-eux se trouvent dans le dossier unused, mais il est possible que certaines fonctions non utilisées soient présentes dans le code.
+Par conséquent, il se peu que quelques fonctions non utilisées subsistent dans le code du jeu . 
 
 ## Projet de cours
 
