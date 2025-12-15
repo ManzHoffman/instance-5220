@@ -194,14 +194,26 @@ Un NPC a été ajouté pour enrichir l'expérience et guider les nouveaux joueur
 
 Ajustements pour un meilleur rendu visuel et une meilleure expérience utilisateur.
 
-* **Adaptation :** Scale ($0.7$) et diminution de la largeur ($1800 \to 1500$).
+* **Adaptation :** Scale automatique en fonction de la largeur de la fenêtre
 * **Configuration Kaplay :**
     ```javascript
-    kaplay({
-        width: 1500,
-        height: 1024,
-        scale: 0.7,
-    })
+ const BASE_WIDTH = 1800;
+const BASE_HEIGHT = 1024;
+
+// Compute scale based on whichever dimension is more restrictive
+function computeScale() {
+    return Math.min(
+        window.innerWidth / BASE_WIDTH,
+        window.innerHeight / BASE_HEIGHT
+    );
+}
+
+kaplay({
+    width: BASE_WIDTH,
+    height: BASE_HEIGHT,
+    scale: computeScale(),
+});
+
     ```
 
 ### 🛑 Restrictions de l'Inventaire
