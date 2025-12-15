@@ -47,6 +47,52 @@ Ce projet a été réalisé dans le cadre du cours :
    - Cliquer sur l'icône du LiveServer à droite en bas
    
 
+## Structure du projet
+
+game/
+│
+├── assets/              # Sprites, sons, textes localisés
+│   └── text/
+│       └── fr.js        # Fichier de localisation (toutes les chaînes du jeu)
+│
+├── scenes/              # Scènes Kaplay : écran-titre, intro, jeu, fin, etc.
+│   ├── intro.js
+│   ├── menu.js
+│   ├── settings.js
+│   ├── game.js
+│   ├── lose.js
+│   └── end.js
+│
+├── player/              # Logique du joueur (déplacements, animations)
+│   └── player.js
+│
+├── collision/           # Gestion centralisée des collisions
+│   └── setupCollisions.js
+│
+├── items/               # Objets interactifs & systèmes
+│   ├── fragments.js
+│   ├── laser.js
+│   ├── spawnElements.js
+│   └── fuel.js
+│
+├── ui/                  # Interface utilisateur
+│   ├── inventory.js
+│   ├── npcDialog.js
+│   ├── codePrompt.js
+│   ├── deerThoughts.js
+│   └── notifications.js
+│
+├── fx/                  # Effets visuels
+│   ├── snow.js
+│   ├── fog.js
+│   ├── glitch.js
+│   ├── vhs.js
+│   └── aurora.js
+│
+├── initialization.js    # Point d’entrée : setup Kaplay, globals, configuration
+└── main.js              # Lancement du jeu
+
+
 ## Commandes
 
 | Action                     | Touche         |
