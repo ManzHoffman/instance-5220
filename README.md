@@ -91,7 +91,8 @@ game/
 │
 ├── initialization.js    # Point d’entrée : setup Kaplay, globals, configuration
 └── main.js              # Lancement du jeu
-```bash
+```
+
 
 ## Commandes
 
