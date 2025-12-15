@@ -48,7 +48,7 @@ Ce projet a été réalisé dans le cadre du cours :
    
 
 ## Structure du projet
-
+```bash
 game/
 │
 ├── assets/              # Sprites, sons, textes localisés
