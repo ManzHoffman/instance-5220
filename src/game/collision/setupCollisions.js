@@ -4,7 +4,7 @@
 
 function setupCollisions(player, texts) {
 
-
+  let isNearFeyra = false;
 
 function getRandomFreyaThought() {
   const thoughts = texts.freya.randomThoughts;
@@ -82,7 +82,7 @@ function getRandomFreyaThought() {
   });
 
   // FREYA DIALOG
-  let isNearFeyra = false;
+
 
   player.onCollideEnd("dialogTriggerFeyra", () => {
     isNearFeyra = false;
@@ -96,8 +96,10 @@ function getRandomFreyaThought() {
 
     showNotification(texts.notifications.talk_freya, 2);
 
-    onKeyPress(controls.activate, () => {
-      const dist = player.pos.dist(t.pos); // you can use dist if needed
+  
+  });
+  onKeyPress(controls.activate, () => {
+ 
 
       const hasThreeFrag = Inventory.count(ITEM_FRAGMENT) === 3;
       const hasFourFrag = Inventory.count(ITEM_FRAGMENT) === 4;
@@ -162,8 +164,6 @@ function getRandomFreyaThought() {
         ],
       });
     });
-  });
-
   // KEY TRIGGER / DOOR
   player.onCollide("keyTrigger", (t) => {
     if (IS_GAME_PAUSED || IS_CINEMATIC_MODE_ON) return;

@@ -6,9 +6,7 @@ const SOUNDS = {
 	firstIntro: "./src/game/assets/sounds/intro_first.wav",
 	reindeer_walking: "./src/game/assets/sounds/reindeer_walking_short.mp3",
 	windAmb: "./src/game/assets/sounds/wind.wav",
-	//eat: "./src/game/assets/sounds/eat.wav",
-	//dropping_snowball: "./src/game/assets/sounds/dropping_snowball.wav",
-	//hit_by_snowball: "./src/game/assets/sounds/hit_by_snowball.wav",
+
 	typing: "./src/game/assets/sounds/typing.wav",
 	fragment_get: "./src/game/assets/sounds/fragment.wav",
 	grab_item: "./src/game/assets/sounds/grab_item.wav",
@@ -24,9 +22,6 @@ const SOUNDS = {
 // LOAD SOUNDS
 loadGameElements(SOUNDS,"sound")
 let soundKeys = Object.keys(SOUNDS);
-
-//let windAmbiance = play(soundKeys[4], { loop: true, paused: true, volume: MUSIC_VOLUME});
-
 
 
 // FONTS

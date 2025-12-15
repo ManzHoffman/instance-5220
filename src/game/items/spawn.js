@@ -269,12 +269,6 @@ return
    // rotate(PLATEFORM_ANGLE)
 
   ])
-//	side_connector_mechanism:"./src/game/assets/elements/trapdoor/parts/side_connector_mechanism.png",
-	//dark_wood_long:"./src/game/assets/elements/trapdoor/parts/dark_wood_long.png",
-
- 
-
-
 
 
   // END ICE BLOCKS
@@ -461,89 +455,7 @@ itemIdleAnimation(key)
     "trampolineJump"
 
   ])
-  /*
-    add([
-    sprite("rope_end_left"),
-    pos(5200, 100),
-    area(),
-    scale(0.2),
-    body({ isStatic: true }),
-    rotate(120),
-    //area(),
 
-  ])
-
-  
-    add([
-    sprite("rope_end_left"),
-    pos(4600, -150),
-    area(),
-    scale(0.2),
-    body({ isStatic: true }),
-    rotate(270),
-    //area(),
-
-  ])
-
-  
-    add([
-    sprite("runner_rope"),
-    pos(5000, -50),
-    area(),
-    scale(0.2),
-    body({ isStatic: true }),
-    rotate(30),
-    //area(),
-
-  ])
-
-const start = vec2(4650, -170);  // where the rope begins
-const angleDeg = 28;           // rope angle
-const tiles = 9;              // how many pieces
-const scaleF = 0.2;            // your scale
-
-// pixel width of the source rope sprite (edit this to your asset)
-const spritePxWidth = 300;
-
-// distance between tiles after scaling
-const step = spritePxWidth * scaleF;
-
-// unit direction along the rope
-const dir = vec2(Math.cos(deg2rad(angleDeg)), Math.sin(deg2rad(angleDeg)));
-
-for (let i = 0; i < tiles; i++) {
-  add([
-    sprite("rope_repeating"),
-    pos(start.add(dir.scale(i * step))),
-    rotate(angleDeg),
-    scale(scaleF),
-    anchor("left"),           // kaboom v3000+  (use origin("left") on older versions)
-    area(),
-    body({ isStatic: true }),
-  ]);
-}
-
-function deg2rad(d) { return d * Math.PI / 180; }
-
-  // END ROPES
-
-*/
-  // SPAWN
-
-
-  //const seagull = spawnSeagull(0,0);
-  /*
-  spawnSpikes(700, 450, 0.6)
-
-  spawnSpikes(990, 420, 0.8)
-
-  spawnSpikes(1200, 450, 0.6)
-
-spawnSpikes(2600, 450, 0.7)
-
-
-spawnSpikes(2900, 420, 0.8)
-*/
 
   spawnMemoryFragment(2140, -100, {
     message: "« Je me souviens maintenant… Un mot gravé dans la neige qui commençait par la lettre T.»",

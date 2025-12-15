@@ -311,46 +311,37 @@ function showInventoryModal(content, duration = 4) {
   }
   
 
-function showHint(){
-  const hint = add([
-    text(UI.help, { size: 30, font: "ussr" }),
-    pos(24, height() - 40),
-    color(COLOR_BLACK),
-    fixed(),
-    opacity(0.8),
-    z(999),
-    "deerThoughtHint",
-  ])
+function playDeerThoughts(thoughts = [], onComplete) {
+  // Guard against bad input
+  if (!Array.isArray(thoughts) || thoughts.length === 0) {
+    onComplete && onComplete();
+    return { cancel: () => {} };
+  }
 
-
-
-}
-function playDeerThoughts(thoughts, onComplete) {
   let timeOffset = 0;
   const cancels = [];
-  let skipped = false;
+  let finished = false;
 
-  const cleanup = () => {
-    if (skipped) return;
-    skipped = true;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
 
-    // Cancel all waits
+    // Cancel all scheduled waits
     cancels.forEach(fn => fn && fn());
 
-    // Clear thoughts from screen
+    // Remove all current thoughts from screen
     destroyAll("deerThought");
 
-    // Call completion callback
     onComplete && onComplete();
   };
 
-  // Schedule all thoughts
+  // Schedule each thought in sequence
   for (const t of thoughts) {
     const duration = t.duration || 4;
     const delay = t.delay ?? 1;
 
     const w = wait(timeOffset, () => {
-      if (skipped) return;
+      if (finished) return;
       showDeerThought(t.text, {
         duration,
         y: t.y || height() - 120,
@@ -361,16 +352,16 @@ function playDeerThoughts(thoughts, onComplete) {
     timeOffset += duration + delay;
   }
 
-  // Final callback when all thoughts are done
-  const endW = wait(timeOffset, () => {
-    if (skipped) return;
-    onComplete && onComplete();
+  // Final callback after all thoughts
+  const endWait = wait(timeOffset, () => {
+    if (finished) return;
+    finish();
   });
-  cancels.push(endW.cancel);
+  cancels.push(endWait.cancel);
 
-  // Expose cancel function (for external use)
-  return { cancel: cleanup };
+  return { cancel: finish };
 }
+
 
 
   
