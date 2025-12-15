@@ -58,7 +58,7 @@ add([
   const player = initPlayer(160, 348);
     addAuroras()
     addSnow()
-  setupCollisions(player)
+  setupCollisions(player,FR)
 
 
 

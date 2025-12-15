@@ -85,7 +85,7 @@ return
   const dialogTriggerFeyra = add([
     area(),
     pos(1000, 0),
-    rect(1, 1000),
+    rect(280, 1000),
     opacity(0), // fully invisible
     z(10),
     "dialogTriggerFeyra"

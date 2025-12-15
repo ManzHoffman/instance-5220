@@ -17,14 +17,14 @@ scene("intro", (level) => {
 
   // Type lines with delay
   function displayLinesSequentially() {
-    lines.forEach((line, i) => {  
+    FR.intro.lines.forEach((line, i) => {  
       wait(i * 1.2, () => {
         addTerminalLine(line);
       });
     });
 
     // After all lines are shown, wait a moment and show prompt
-    wait(lines.length * 1.2 + 1, () => {
+    wait(  FR.intro.lines.length * 1.2 + 1, () => {
       addText("Appuyer sur ESPACE pour commencer", 36, COLOR_WHITE, "ussr", "center", width() / 2, height() / 2 + 180);
 
       onKeyPress("space", () => {

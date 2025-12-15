@@ -4,8 +4,9 @@ window.showScreenGlitch = function (duration = 2.0) {
   if (glitchCanvas) return; // already active
 
   glitchSketch = new p5((p) => {
-    const canvasWidth = 1800*0.8;
-    const canvasHeight = 1024*0.8;
+     const scale = computeScale();
+  const canvasWidth = BASE_WIDTH * scale;
+  const canvasHeight = BASE_HEIGHT * scale;
 
     p.setup = () => {
       glitchCanvas = p.createCanvas(canvasWidth, canvasHeight);

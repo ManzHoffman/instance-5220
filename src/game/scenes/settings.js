@@ -15,7 +15,7 @@ scene("settings", () => {
 
   const startY = 120;
 
-  CONTROLS.forEach((entry, i) => {
+  FR.ui.controls.forEach((entry, i) => {
     add([
       text(`${entry.action}: ${entry.key}`, {
         size: 20,

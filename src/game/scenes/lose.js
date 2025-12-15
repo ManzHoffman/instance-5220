@@ -48,11 +48,11 @@ scene("lose", () => {
 
       reindeerDie.play(ANIM_DIE);
 
-    addText(loose.text, 44, COLOR_WHITE, "ussr", "center", width() / 2, height() / 2 -100 );
+    addText(FR.lose.text, 44, COLOR_WHITE, "ussr", "center", width() / 2, height() / 2 -100 );
 
 // 3 seconds until explosion! Runnn!
 wait(1, () => {
-    addText(loose.title,48,COLOR_WHITE,"ussr","center",width()/2,height()/2+400)
+    addText(FR.lose.title,48,COLOR_WHITE,"ussr","center",width()/2,height()/2+400)
   
     onKeyPress("space", () => {
      

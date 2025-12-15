@@ -6,7 +6,7 @@
   };
   
 function getControlsDescription() {
-  return CONTROLS.map(c => `${c.action} : ${c.key}`).join("\n");
+  return FR.ui.controls.map(c => `${c.action} : ${c.key}`).join("\n");
 }
 
 function addHelpButton() {
@@ -326,62 +326,52 @@ function showHint(){
 
 }
 function playDeerThoughts(thoughts, onComplete) {
-  let timeOffset = 0
-  const cancels = []        
-  let skipped = false
-
-
-
+  let timeOffset = 0;
+  const cancels = [];
+  let skipped = false;
 
   const cleanup = () => {
-    if (skipped) return
-    skipped = true
+    if (skipped) return;
+    skipped = true;
 
-    cancels.forEach(fn => fn && fn())
+    // Cancel all waits
+    cancels.forEach(fn => fn && fn());
 
-    destroyAll("deerThought")
-    destroy(hint)
-  
-    keySkip.cancel()
-    clickSkip.cancel()
- 
-    onComplete && onComplete()
-  }
+    // Clear thoughts from screen
+    destroyAll("deerThought");
 
-
-
-  //const clickSkip = onClick(cleanup) 
+    // Call completion callback
+    onComplete && onComplete();
+  };
 
   // Schedule all thoughts
   for (const t of thoughts) {
-    const duration = t.duration || 4
-    const delay = t.delay ?? 1
+    const duration = t.duration || 4;
+    const delay = t.delay ?? 1;
 
     const w = wait(timeOffset, () => {
-      if (skipped) return
+      if (skipped) return;
       showDeerThought(t.text, {
         duration,
         y: t.y || height() - 120,
-      })
-    })
-    cancels.push(w.cancel)
+      });
+    });
 
-    timeOffset += duration + delay
+    cancels.push(w.cancel);
+    timeOffset += duration + delay;
   }
 
- 
+  // Final callback when all thoughts are done
   const endW = wait(timeOffset, () => {
-    if (skipped) return
-    //destroy(hint)
-    //keySkip.cancel()
-    //clickSkip.cancel()
-    onComplete && onComplete()
-  })
-  cancels.push(endW.cancel)
+    if (skipped) return;
+    onComplete && onComplete();
+  });
+  cancels.push(endW.cancel);
 
-
-  return { cancel: cleanup }
+  // Expose cancel function (for external use)
+  return { cancel: cleanup };
 }
+
 
   
   

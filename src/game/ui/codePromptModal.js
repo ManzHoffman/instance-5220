@@ -1,4 +1,4 @@
-window.showCodePromptModal = function(promptText, onSuccess, correctCode = SECRET_CODE) {
+window.showCodePromptModal = function(promptText, onSuccess, correctCode = FR.secret.code) {
   const boxWidth = 600
   const boxHeight = 250
   const MAX_CHARS = 4

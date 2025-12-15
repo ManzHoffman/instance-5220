@@ -1,13 +1,21 @@
-kaplay({
-    width: 1800,
-    height: 1024,
-    scale:0.8,
-    //font: "sans-serif",
-    //canvas: document.querySelector("#mycanvas"),
-    //background: [ 0, 0, 10, ],
-})
+const BASE_WIDTH = 1800;
+const BASE_HEIGHT = 1024;
 
-// dZING CONST GLOBAL VARIABLES
+// Compute scale based on whichever dimension is more restrictive
+function computeScale() {
+    return Math.min(
+        window.innerWidth / BASE_WIDTH,
+        window.innerHeight / BASE_HEIGHT
+    );
+}
+
+kaplay({
+    width: BASE_WIDTH,
+    height: BASE_HEIGHT,
+    scale: computeScale(),
+});
+
+// DEFINE CONST GLOBAL VARIABLES
 const LEVEL_TESTING = false;
 
 

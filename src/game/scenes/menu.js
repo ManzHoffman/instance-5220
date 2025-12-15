@@ -128,7 +128,7 @@ scene("menu", () => {
 
 
 
-    createMenuButton(menu.play, height() / 2 - 60, () => {
+    createMenuButton(FR.menu.play, height() / 2 - 60, () => {
       backMusic.stop("menu")
       
  
@@ -139,7 +139,7 @@ scene("menu", () => {
 
     })
     
-    createMenuButton(menu.options, height() / 2 + 60, () => {
+    createMenuButton(FR.menu.options, height() / 2 + 60, () => {
       backMusic.stop("menu")
         go("settings")
     })
