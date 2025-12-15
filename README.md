@@ -194,10 +194,11 @@ Un NPC a été ajouté pour enrichir l'expérience et guider les nouveaux joueur
 
 Ajustements pour un meilleur rendu visuel et une meilleure expérience utilisateur.
 
-* **Adaptation :** Scale automatique en fonction de la largeur de la fenêtre
+* **Adaptation :** scale automatique en fonction de la taille de la fenêtre  
 * **Configuration Kaplay :**
-    ```javascript
- const BASE_WIDTH = 1800;
+
+```javascript
+const BASE_WIDTH = 1800;
 const BASE_HEIGHT = 1024;
 
 // Compute scale based on whichever dimension is more restrictive
@@ -213,23 +214,27 @@ kaplay({
     height: BASE_HEIGHT,
     scale: computeScale(),
 });
+```
 
-    ```
+---
 
 ### 🛑 Restrictions de l'Inventaire
 
 Empêche l'interaction de l'utilisateur pendant les séquences narratives importantes.
 
-* **Condition Ajoutée (dans `Inventory.js`) :** L'inventaire ne s'ouvre pas si le mode cinématique est actif.
-    ```javascript
-    function showInventoryGrid() {
-        if (isOpen || IS_CINEMATIC_MODE_ON) return
-        // ...
-    }
-    ```
+**Condition ajoutée (dans `Inventory.js`)** :
 
-### 📝 Mise à Jour du Readme
+```javascript
+function showInventoryGrid() {
+    if (isOpen || IS_CINEMATIC_MODE_ON) return;
+    // ...
+}
+```
 
-* Le lien vers le site de l'Unil non fonctionnel a été **corrigé**.
-* La description du jeu a été **adaptée** en cohérence avec tous les nouveaux éléments.
-* Ajout d'une section sur le code parfois non utilisé, présent dans le repository. 
+---
+
+### 📝 Mise à Jour du README
+
+- Correction du lien vers le site de l'UNIL  
+- Description du jeu mise à jour selon les nouvelles mécaniques  
+- Ajout d'une section expliquant la présence de code expérimental/commenté  
